@@ -1,0 +1,48 @@
+.main-product {
+	float: left;position: relative; /*Cái này để relative để 2 cái button arrow nó đối chiếu vị trí theo*/
+}
+h1 {
+	color: white;
+}
+/* Style cho the div chi hien 1 số phần tử bao ngoai va an scroll x, y */
+.element {
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	height:250px;	
+	overflow: hidden;
+}
+/* Dinh chieu rong cho the bao cac item chua du het cac item tren 1 dong */ 
+.element .wrapper {
+	float: left;
+}
+/*Định style cho sản phẩm*/
+.element .item {
+	margin-right: 20px;
+	float: left;
+	height: 250px;
+}
+
+.element .item img {
+	width:100%;
+	height: 100%;
+	
+}
+/* Style cho icon arrow chung */
+.element   img.icon-arrow{ 
+	width: 50px;
+	position: absolute;
+	z-index: 999;
+	cursor: pointer;
+}
+/*Định vị trí icon arrow left */
+.element   img.icon-arrow.left-arrow{ 
+	left:30px;
+	top: 200px;
+}
+/*Định vị trí icon arrow right là absolute so với class main */
+.element  img.icon-arrow.right-arrow{ 
+	left:930px;
+	top: 200px;
+}
