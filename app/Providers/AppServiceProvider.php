@@ -9,6 +9,7 @@ use App\Models\Comment;
 use App\Models\Banner;
 use App\Models\Order;
 use App\Models\Detail;
+use App\Models\Province;
 use App\Models\ProductView;
 use Carbon\Carbon;
 use  DB;
@@ -64,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
         $data['money_month_false'] = Order::whereMonth('updated_at', Carbon::now()->month)->where('status', 3)->sum('cost_total');
         $data['count'] = Order::whereMonth('updated_at', Carbon::now()->month)->where('status', 2)->sum('count');
         // dd($data['money_month']);
-
+        $data['city'] = Province::orderBy('matp', 'ASC')->get();
         view()->share($data);
     }
 }
