@@ -153,7 +153,7 @@
                         <?php if($order['status'] == 0): ?>
                             <?php if ($userLogin->position_id != 2): ?>        
                                 <hr>
-                                <div class="text-center">
+                                <div class="text-center d-print-none">
                                     <a href="{{route('listorder')}}" class="btn btn-outline-secondary mr-3" role="button">
                                         <i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>
                                         Quay lại
@@ -170,7 +170,7 @@
                         <?php if($order['status'] == 1): ?>
                             <?php if ($userLogin->position_id != 2): ?>        
                                 <hr>
-                                <div class="text-center">
+                                <div class="text-center d-print-none">
                                     <a href="{{route('listdelivery')}}" class="btn btn-outline-secondary mr-3" role="button">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Quay lại
