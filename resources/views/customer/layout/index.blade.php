@@ -11,9 +11,7 @@
 	<link rel="stylesheet" href="{{asset('customer/css/home.css')}}">
 	<link rel="stylesheet" href="{{asset('customer/css/details.css')}}">
 	@include('customer.layout.css')
-	<script type="text/javascript" src="{{asset('customer/js/jquery-3.2.1.min.js')}}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-	<script type="text/javascript" src="{{asset('customer/js/bootstrap.min.js')}}"></script>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript">
 		$(function() {
@@ -163,35 +161,39 @@
 	</footer>
 	<!-- endfooter -->
 
-	<div class="zalo-chat-widget" data-oaid="3927420380731793348" data-welcome-message="Chào bạn ! Rất vui khi được hỗ trợ bạn !" data-autopopup="20" data-width="400" data-height="400"></div>
+	<div class="zalo-chat-widget mb-5" data-oaid="3927420380731793348" data-welcome-message="Chào bạn ! Rất vui khi được hỗ trợ bạn !" data-autopopup="20" data-width="400" data-height="400"></div>
 
 	<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 
 	<!-- Load Facebook SDK for JavaScript -->
-    <!-- <div id="fb-root"></div>
-		<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					xfbml            : true,
-					version          : 'v7.0'
-				});
-			};
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				xfbml            : true,
+				version          : 'v7.0'
+			});
+		};
 
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	  	</script>
-	  	
-		<div class="fb-customerchat"
-			attribution=setup_tool
-			page_id="101000914811077"
-			theme_color="#fa3c4c"
-			logged_in_greeting="Chào bạn, chúng tôi có thể giúp gì cho bạn ?"
-			logged_out_greeting="Chào bạn, chúng tôi có thể giúp gì cho bạn ?">
-		</div> -->
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+  	</script>
+  	
+	<div class="fb-customerchat"
+		attribution=setup_tool
+		page_id="101000914811077"
+		theme_color="#fa3c4c"
+		logged_in_greeting="Chào bạn, chúng tôi có thể giúp gì cho bạn ?"
+		logged_out_greeting="Chào bạn, chúng tôi có thể giúp gì cho bạn ?">
+	</div>
+	<script type="text/javascript" src="{{asset('customer/js/jquery-3.2.1.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script type="text/javascript" src="{{asset('customer/js/bootstrap.min.js')}}"></script>
+	@include('customer.layout.ajax')
 </body>
 </html>

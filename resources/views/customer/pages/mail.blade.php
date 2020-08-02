@@ -15,7 +15,7 @@
 		</p>
 		<p>
 			<span class="info">Địa chỉ: </span>
-			{{$infor['add']}}
+			{{$add['customer_address']}}
 		</p>
 	</div>						
 	<div id="hoa-don">

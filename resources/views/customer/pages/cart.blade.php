@@ -7,7 +7,7 @@
 </script>
 <div id="wrap-inner">
 	<div id="list-cart">
-		<h3>Giỏ hàng</h3>
+		<h3 class="text-center mb-4">Giỏ hàng</h3>
 		<form>
 			@if (\Session::has('errorcart'))
 			    <div class="alert alert-success text-center">
@@ -50,8 +50,8 @@
 						Tổng thanh toán: <span class="total-price">{{Number_format($test)}} đ</span>
 																								
 				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<a style="width: 30%; border-color: #ebdac1; padding: 10px;" href="{{route('customer.home')}}" class="my-btn btn">Mua tiếp</a>
+				<div class="col-md-6 col-sm-12 col-xs-12 mb-4">
+					<a style="width: 30%; border-color: #ebdac1; padding: 10px;" href="{{route('customer.home')}}" class="my-btn btn mr-4">Mua tiếp</a>
 					<!-- <a style="width: 30%;border-color: #ebdac1;" href="#" class="my-btn btn">Cập nhật</a> -->
 					<a style="width: 30%;border-color: #ebdac1; padding: 10px;" href="{{asset('cart/deletecart/DelAll')}}" class="my-btn btn">Xóa giỏ hàng</a>
 				</div>
@@ -59,29 +59,58 @@
 		</form>             	                	
 	</div>
 
+	<hr>
+
 	<div id="xac-nhan">
-		<h3>Xác nhận mua hàng</h3>
+		<h3 class="text-center">Xác nhận mua hàng</h3>
 		<form action="{{asset('cart/postcart')}}" method="post">
 			@csrf
 			<input type="text" name="total" value="<?php echo $test; ?>" hidden>
-			<div class="form-group">
-				<label for="email">Email address:</label>
-				<input required type="email" class="form-control" id="email" name="email" placeholder="username@domain.com">
-			</div>
+			
 			<div class="form-group">
 				<label for="name">Họ và tên:</label>
-				<input required type="text" class="form-control" id="name" name="name" placeholder="Nguyễn Thị C">
+				<input required type="text" class="form-control" id="name" name="name" placeholder="Nhập họ tên của bạn">
 			</div>
+
+			<div class="form-group">
+				<label for="email">Địa chỉ Email: </label>
+				<input required type="email" class="form-control" id="email" name="email" placeholder="Nhập địa chỉ email của bạn">
+			</div>
+
 			<div class="form-group">
 				<label for="phone">Số điện thoại:</label>
-				<input required type="number" class="form-control" id="phone" name="phone" placeholder="0988 666 999">
+				<input required type="number" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn">
 			</div>
+			<label for="add">Địa chỉ:</label>
+			<div class="form-group row">
+				<div class="form-group col-md-4">
+					<select class="form-control choose city" id="city" name="city">
+                        <option>---Chọn tỉnh / thành phố---</option>
+                        <?php foreach ($city as $value): ?>
+                        	<option value="{{$value->matp}}">{{$value->name}}</option>
+                        <?php endforeach ?>
+                    </select>
+				</div>
+
+				<div class="form-group col-md-4">
+					<select class="form-control choose district" id="district" name="district">
+                        <option value="">---Chọn quận / huyện---</option>
+                    </select>
+				</div>
+
+				<div class="fom-group col-md-4">
+					<select class="form-control" id="wards" name="wards">
+                        <option value="">---Chọn phường / xã---</option>
+                    </select>
+				</div>
+			</div>
+
 			<div class="form-group">
-				<label for="add">Địa chỉ:</label>
-				<input required type="text" class="form-control" id="add" name="add" placeholder="xã A, huyện B, tỉnh C">
+				<input required type="text" class="form-control" id="add" name="add" placeholder="Nhập số nhà, tên đường ...">
 			</div>
+
 			<div class="form-group text-right">
-				<button type="submit" class="btn btn-default">Thực hiện đơn hàng</button>
+				<button type="submit" class="btn btn-default">Thực hiện đặt hàng</button>
 			</div>
 		</form>
 	</div>

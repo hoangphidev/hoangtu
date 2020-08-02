@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Customer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Detail;
+use App\Models\Province;
+use App\Models\District;
+use App\Models\Ward;
 use App\Models\Category;
 use Cart;
 use Mail;
@@ -49,7 +53,15 @@ class CartController extends Controller
             $order->name = $request->name;
             $order->phone = $request->phone;
             $order->email = $request->email;
-            $order->customer_address = $request->add;
+
+            $wards = Ward::where('xaid', $request->wards)->first();
+            $district = District::where('maqh', $request->district)->first();
+            $city = Province::where('matp', $request->city)->first();
+            $customer_address = $request->add.', '.$wards->name.', '.$district->name.', '.$city->name;
+            $email_data['add'] = [
+                'customer_address' => $customer_address
+            ];
+            $order->customer_address = $customer_address;
             $order->cost_total = $email_data['total'];
             $order->status = 0;
             $soluong = 0;
@@ -92,4 +104,27 @@ class CartController extends Controller
     public function getComplete($id){
         return view('customer.pages.complete');
     }
+
+    public function selectCart(Request $req)
+    {
+        $data = $req->all();
+        if ($data['action']) {
+            $output = '';
+            if ($data['action'] == "city") {
+                $select_district = District::where('matp', $data['ma_id'])->orderBy('maqh', 'ASC')->get();
+                $output.='<option>---Chọn quận / huyện---</option>';
+                foreach ($select_district as $key => $district) {
+                    $output.='<option value="'.$district->maqh.'">'.$district->name.'</option>';
+                }
+            }else {
+                $select_wards = Ward::where('maqh', $data['ma_id'])->orderBy('xaid', 'ASC')->get();
+                $output.='<option>---Chọn phường / xã---</option>';
+                foreach ($select_wards as $key => $ward) {
+                    $output.='<option value="'.$ward->xaid.'">'.$ward->name.'</option>';
+                }
+            }
+        }
+        echo $output;
+    }
 }
+

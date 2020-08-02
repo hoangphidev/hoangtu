@@ -19,6 +19,7 @@ Route::group(['prefix'=>'cart'],function(){
     Route::get('deletecart/{id}','Customer\CartController@getDeleteCart');
     Route::get('updatecart','Customer\CartController@getUpdateCart');
     Route::post('postcart','Customer\CartController@postCart');
+    Route::post('select-cart','Customer\CartController@selectCart')->name('select-cart');
 });
 Route::get('complete/{id}/{email}/{name}.html','Customer\CartController@getComplete')->middleware('checkcomplete');
 
