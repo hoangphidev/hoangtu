@@ -10,17 +10,17 @@
 	}
 
 	#header{
-		background: #000 !important;  /* Màu trên cùng */		
+		background: #FF3300 !important;  /* Màu trên cùng */		
 	}
 
 	#footer-t{
-		background: #000 !important; /* Màu chân */
+		background: #FF3300 !important; /* Màu chân */
 		color: #fff;
 		padding: 15px 0 0 0;		
 	}
 
 	#footer-b{
-		background: #2b2b2b !important; /* Màu chân dưới cùng */
+		background: #FF3300 !important; /* Màu chân dưới cùng */
 	}
 
 	.products h3{
