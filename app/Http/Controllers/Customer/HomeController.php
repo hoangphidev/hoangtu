@@ -38,7 +38,8 @@ class HomeController extends Controller
     public function getSlideDetail($id)
     {
         $sl = Banner::find($id);
-        return view('customer.pages.slide', ['sl' => $sl]);
+        $product = Product::where('cate_id', $sl->cate_id)->take(4)->get();
+        return view('customer.pages.slide', ['sl' => $sl, 'product' => $product]);
     }
 
 }

@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Tất cả code trong này sẽ được chạy đầu tiên khi khởi động route
         $product = Product::all();
         $today = strtotime(Carbon::today());
         foreach ($product as $pd) {

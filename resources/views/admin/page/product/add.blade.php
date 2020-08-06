@@ -112,7 +112,8 @@
                                         <div class="form-group">
                                             <label for="des">Mô tả</label>
                                         
-                                            <textarea class="form-control" name="description" rows="5" id="des" placeholder="Nhập mô tả sản phẩm..."></textarea>
+                                          <textarea class="form-control" name="description" rows="5" id="des" placeholder="Nhập mô tả sản phẩm..."></textarea>
+
                                         </div>
 
                                         <div class="form-group">

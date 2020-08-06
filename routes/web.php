@@ -6,7 +6,7 @@ Route::get('about','Customer\HomeController@getAbout')->name('customer.about');/
 Route::get('chinh-sach-mua-hang','Customer\HomeController@getShip')->name('customer.ship');//home user
 Route::get('seach','Customer\HomeController@getSeachResult');
 Route::get('category/{id}/{unsigned_name}','Customer\CategoryController@getCategory'); // product by category
-// show detail product and comment
+// Hiển thị chi tiết sản phẩm và bình luận
 Route::get('detail/{id}/{unsigned_name}.html','Customer\ProductController@getDetailProduct');
 Route::get('banner/{id}/{unsigned_name}.html','Customer\HomeController@getSlideDetail')->name('bannerdetail');
 Route::post('detail/{id}/{unsigned_name}.html','Customer\ProductController@postConment');
@@ -103,7 +103,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
         Route::get('delete/{id}', 'Admin\CarrierController@getDelete');
     });
-
+    //Danh mục sản phẩm
     Route::group(['prefix' => 'category', 'middleware' => 'category'], function() {
         Route::get('/', 'Admin\CategoryController@getIndex')->name('listcate');
 
@@ -115,7 +115,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
         Route::get('delete/{id}', 'Admin\CategoryController@getDelete');
     });
-
+        // Sản phẩm
     Route::group(['prefix'=>'product', 'middleware' => 'product'], function(){
         Route::get('/','Admin\ProductController@getIndex')->name('listproduct');
 
@@ -127,7 +127,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
         Route::get('delete/{id}', 'Admin\ProductController@getDelete');
     });
-
+        // đặt hàng
     Route::group(['prefix' => 'order'],function(){
         Route::get('/','Admin\OrderController@getOrder')->name('listorder')->middleware('listorder');
         Route::get('listdelivery','Admin\OrderController@getDelivery')->name('listdelivery')->middleware('listdelivery');
@@ -139,7 +139,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
         Route::get('orderdetail/{id}','Admin\OrderController@getDetailOrder')->name('orderdetail');
     });
-
+    //Chức vụ
     Route::group(['prefix' => 'position', 'middleware' => 'position'], function() {
         Route::get('/', 'Admin\PositionController@getIndex')->name('listposition');
 
@@ -151,7 +151,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
         Route::get('delete/{id}', 'Admin\PositionController@getDelete');
     });
-
+        // Nhân viên
     Route::group(['prefix' => 'user', 'middleware' => 'employee'], function(){
         Route::get('/','Admin\EmployeeController@getIndex')->name('listemployee');
 
