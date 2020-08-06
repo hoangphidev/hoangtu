@@ -32,6 +32,40 @@ Route::get('admin/logout','Admin\LoginController@outLogin')->name('admin.logout'
 Route::get('login/google', 'Admin\LoginController@redirectToGoogle')->name('admin.login.google');
 Route::get('login/google/callback', 'Admin\LoginController@handleGoogleCallback');
 
+Route::get('ncovid', function(){
+    $json_string = 'https://ncovi.huynhhieu.com/api.php?code=external';
+    $jsondata = file_get_contents($json_string);
+    $data = json_decode($jsondata,true);
+    $data['data'] = ($data['data']);
+
+    $cases = 0;
+    $deaths = 0;
+    $recovered = 0;
+
+    foreach ($data['data'] as $value) {
+        if ($value['country'] == "Vietnam") {
+            $data['vn'] = [
+                'cases' => $value['cases'],
+                'deaths' => $value['deaths'],
+                'recovered' => $value['recovered']
+            ];
+        }
+
+        $cases += str_replace(",", "", $value['cases']);
+        $deaths += str_replace(",", "", $value['deaths']);
+        if (!($value['recovered'] == "N/A")) {
+            $recovered += str_replace(",", "", $value['recovered']);
+        }
+    }
+
+    $data['world'] = [
+        'cases' => $cases,
+        'deaths' => $deaths,
+        'recovered' => $recovered + 205849
+    ];
+    return view("ncovid", ['data' => $data]);
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'checklogin'], function() {
 
     Route::get('/', 'Admin\HomeController@getHome')->name('admin.home');
