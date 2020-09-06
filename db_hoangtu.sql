@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 04:08 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.32
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th9 06, 2020 lúc 09:32 AM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hoangtu`
+-- Cơ sở dữ liệu: `db_hoangtu`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_quanhuyen`
+-- Cấu trúc bảng cho bảng `tbl_quanhuyen`
 --
 
 CREATE TABLE `tbl_quanhuyen` (
@@ -35,7 +36,7 @@ CREATE TABLE `tbl_quanhuyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_quanhuyen`
+-- Đang đổ dữ liệu cho bảng `tbl_quanhuyen`
 --
 
 INSERT INTO `tbl_quanhuyen` (`maqh`, `name`, `type`, `matp`) VALUES
@@ -756,7 +757,7 @@ INSERT INTO `tbl_quanhuyen` (`maqh`, `name`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tinhthanhpho`
+-- Cấu trúc bảng cho bảng `tbl_tinhthanhpho`
 --
 
 CREATE TABLE `tbl_tinhthanhpho` (
@@ -766,7 +767,7 @@ CREATE TABLE `tbl_tinhthanhpho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `tbl_tinhthanhpho`
+-- Đang đổ dữ liệu cho bảng `tbl_tinhthanhpho`
 --
 
 INSERT INTO `tbl_tinhthanhpho` (`matp`, `name`, `type`) VALUES
@@ -837,7 +838,7 @@ INSERT INTO `tbl_tinhthanhpho` (`matp`, `name`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_xaphuongthitran`
+-- Cấu trúc bảng cho bảng `tbl_xaphuongthitran`
 --
 
 CREATE TABLE `tbl_xaphuongthitran` (
@@ -848,7 +849,7 @@ CREATE TABLE `tbl_xaphuongthitran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_xaphuongthitran`
+-- Đang đổ dữ liệu cho bảng `tbl_xaphuongthitran`
 --
 
 INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
@@ -12026,7 +12027,7 @@ INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_banners`
+-- Cấu trúc bảng cho bảng `tb_banners`
 --
 
 CREATE TABLE `tb_banners` (
@@ -12036,31 +12037,27 @@ CREATE TABLE `tb_banners` (
   `images` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` varchar(5000) COLLATE utf8_unicode_ci NOT NULL,
   `locate` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL DEFAULT '1',
   `cate_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_banners`
+-- Đang đổ dữ liệu cho bảng `tb_banners`
 --
 
 INSERT INTO `tb_banners` (`id`, `name`, `unsigned_name`, `images`, `description`, `locate`, `status`, `cate_id`, `created_at`, `updated_at`) VALUES
-(5, 'test', 'test', 'test-03-08-2020-yzvy4bfs-nho.jpg', 'ghfghfg', 2, 1, 1, '2020-06-15 09:42:21', '2020-08-03 12:36:38'),
-(6, 'ghjfg', 'ghjfg', 'ghjfg-03-08-2020-INohALZj-nho.jpg', 'fghjfghj', 3, 1, 4, '2020-06-15 09:43:10', '2020-08-03 12:36:03'),
-(7, 'tytrt', 'tytrt', 'tytrt-03-08-2020-b4AnS4PU-800-170-800x170-12.png', 'rtrty', 3, 1, 1, '2020-06-15 09:46:28', '2020-08-03 12:39:55'),
-(8, 'hfgh', 'hfgh', 'hfgh-15-06-2020-V039TDH3-398-110copy-398x110.png', 'fght', 2, 1, 4, '2020-06-15 09:46:43', '2020-06-15 09:47:44'),
-(9, 'Phụ Kiện Long Thành', 'phu-kien-long-thanh', 'phu-kien-long-thanh-03-08-2020-DAFUEICe-banner-des-1920x300-1920x300.png', 'êrrtr', 1, 1, 1, '2020-08-03 12:04:48', '2020-08-03 12:04:48'),
-(10, 'Phụ Kiện Long Thành', 'phu-kien-long-thanh', 'phu-kien-long-thanh-03-08-2020-od8nuhS4-800-170-800x170-12.png', 'uyuyiui', 1, 1, 1, '2020-08-03 12:13:33', '2020-08-03 12:13:33'),
-(11, 'Phụ kiện Tín Phát', 'phu-kien-tin-phat', 'phu-kien-tin-phat-03-08-2020-qS4NN3SP-800-170-800x170-4.png', 'hjhkjk', 3, 1, 1, '2020-08-03 12:20:03', '2020-08-03 12:20:03'),
-(12, 'Phụ Kiện Long Thành', 'phu-kien-long-thanh', 'phu-kien-long-thanh-03-08-2020-mtBq5wYC-chinh-sach-doi-tra.jpg', 'uyu', 3, 0, 1, '2020-08-03 12:21:06', '2020-08-03 12:34:33'),
-(14, 'Phụ Kiện Long Thành', 'phu-kien-long-thanh', 'phu-kien-long-thanh-03-08-2020-RSknS4em-dfdg.jpg', '78898', 1, 1, 1, '2020-08-03 12:34:53', '2020-08-03 12:34:53');
+(4, 'OPPO A52, OPPO A92 trả góp 0%, giảm đến 500.000đ', 'oppo-a52-oppo-a92-tra-gop-0-giam-den-500000d', 'oppo-a52-oppo-a92-tra-gop-0-giam-den-500000d-06-06-2020-fhR89JJc-Combo-800-300-800x300.png', 'OPPO A92, OPPO A92 chính hãng, OPPO, giá OPPO A92, mua OPPO A92, OPPO A92 2020, OPPO A52, OPPO A52 chính hãng, OPPO, giá OPPO A52, mua OPPO A52, OPPO A52 2020', 1, 1, 4, '2020-06-06 14:36:25', '2020-06-07 09:34:39'),
+(5, 'test', 'test', 'test-15-06-2020-P2gTiJ5F-combo-A3-1-398-110-398x110.png', 'ghfghfg', 2, 1, 1, '2020-06-15 09:42:21', '2020-06-15 09:42:21'),
+(6, 'ghjfg', 'ghjfg', 'ghjfg-15-06-2020-TCv6VIea-398-110copy-398x110.png', 'fghjfghj', 3, 1, 4, '2020-06-15 09:43:10', '2020-06-15 09:43:10'),
+(7, 'tytrt', 'tytrt', 'tytrt-15-06-2020-BwnBCwRo-combo-A3-1-398-110-398x110.png', 'rtrty', 3, 1, 5, '2020-06-15 09:46:28', '2020-06-15 09:47:32'),
+(8, 'hfgh', 'hfgh', 'hfgh-15-06-2020-V039TDH3-398-110copy-398x110.png', 'fght', 2, 1, 4, '2020-06-15 09:46:43', '2020-06-15 09:47:44');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_carriers`
+-- Cấu trúc bảng cho bảng `tb_carriers`
 --
 
 CREATE TABLE `tb_carriers` (
@@ -12072,57 +12069,49 @@ CREATE TABLE `tb_carriers` (
   `website` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `locations` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(5000) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_carriers`
+-- Đang đổ dữ liệu cho bảng `tb_carriers`
 --
 
 INSERT INTO `tb_carriers` (`id`, `name`, `unsigned_name`, `phone`, `email`, `website`, `locations`, `description`, `status`, `created_at`, `updated_at`) VALUES
 (3, 'Công ty CP và TM Hoàng Phi Mobile', 'cong-ty-cp-va-tm-hoang-phi-mobile', '0867604321', 'contact@hoangphi.works', 'http://hoangphi.works/', 'Tứ Yên - Sông Lô - Vĩnh Phúc', 'không rõ', 1, '2020-06-07 09:20:36', '2020-06-07 09:20:36'),
-(4, 'Công ty truyền thông Minh Hằng Official', 'cong-ty-truyen-thong-minh-hang-official', '0373821691', 'minhhangvlogs@gmail.com', NULL, 'Tứ Yên - Sông Lô - Vĩnh Phúc', 'không', 1, '2020-06-13 08:40:21', '2020-06-13 08:40:21'),
-(5, 'Phụ Kiện Long Thành', 'phu-kien-long-thanh', '0987365124', 'hangmo27121999@gmail.com', NULL, '34 Lê Thanh Nghị', 'Mua bán uy tín, chất lượng', 1, '2020-08-02 10:16:03', '2020-08-02 10:16:03'),
-(6, 'Phụ kiện Tín Phát', 'phu-kien-tin-phat', '0987345127', 'minhhang27121999@gmail.com', NULL, 'Số 1 Lê Thanh Nghị', 'Mua hàng chất lượng', 1, '2020-08-02 10:17:40', '2020-08-02 10:17:40');
+(4, 'Công ty truyền thông Minh Hằng Official', 'cong-ty-truyen-thong-minh-hang-official', '0373821691', 'minhhangvlogs@gmail.com', NULL, 'Tứ Yên - Sông Lô - Vĩnh Phúc', 'không', 1, '2020-06-13 08:40:21', '2020-06-13 08:40:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_categories`
+-- Cấu trúc bảng cho bảng `tb_categories`
 --
 
 CREATE TABLE `tb_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `unsigned_name` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_categories`
+-- Đang đổ dữ liệu cho bảng `tb_categories`
 --
 
 INSERT INTO `tb_categories` (`id`, `name`, `unsigned_name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Chuột không dây máy tính', 'chuot-khong-day-may-tinh', 1, '2020-06-05 08:49:18', '2020-08-02 16:27:19'),
-(2, 'Bàn phím máy tính không dây', 'ban-phim-may-tinh-khong-day', 1, '2020-06-05 08:49:47', '2020-08-02 16:45:25'),
-(3, 'USB', 'usb', 1, '2020-06-05 08:54:04', '2020-08-05 13:51:21'),
+(1, 'Chuột', 'chuot', 1, '2020-06-05 08:49:18', '2020-06-14 03:22:51'),
+(2, 'Bàn phím', 'ban-phim', 1, '2020-06-05 08:49:47', '2020-06-05 14:38:21'),
+(3, 'Usb', 'usb', 1, '2020-06-05 08:54:04', '2020-06-06 15:01:23'),
 (4, 'Ổ cứng HDD, SSD', 'o-cung-hdd-ssd', 1, '2020-06-05 08:55:08', '2020-06-07 09:13:15'),
-(6, 'Dây nguồn máy tính', 'day-nguon-may-tinh', 1, '2020-08-02 10:18:30', '2020-08-02 10:18:30'),
-(7, 'Lót chuột máy tính', 'lot-chuot-may-tinh', 1, '2020-08-02 10:18:50', '2020-08-02 10:18:50'),
-(8, 'Ô chia USB', 'o-chia-usb', 1, '2020-08-02 10:19:24', '2020-08-02 10:19:24'),
-(9, 'Tai nghe Laptop', 'tai-nghe-laptop', 1, '2020-08-02 10:19:44', '2020-08-02 10:19:44'),
-(10, 'Cap chuyển đổi từ HDMI-VGA', 'cap-chuyen-doi-tu-hdmi-vga', 1, '2020-08-02 10:20:23', '2020-08-02 10:20:23'),
-(11, 'Balo Laptop', 'balo-laptop', 1, '2020-08-02 10:20:48', '2020-08-02 10:20:48'),
-(12, 'Sạc Laptop', 'sac-laptop', 1, '2020-08-02 10:21:21', '2020-08-02 10:21:21');
+(5, 'Màn hình máy tính', 'man-hinh-may-tinh', 1, '2020-06-07 09:31:55', '2020-06-07 09:31:55');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_comments`
+-- Cấu trúc bảng cho bảng `tb_comments`
 --
 
 CREATE TABLE `tb_comments` (
@@ -12131,21 +12120,14 @@ CREATE TABLE `tb_comments` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `body` varchar(2500) COLLATE utf8_unicode_ci NOT NULL,
   `product_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tb_comments`
---
-
-INSERT INTO `tb_comments` (`id`, `name`, `email`, `body`, `product_id`, `created_at`, `updated_at`) VALUES
-(1, 'Minh Hằng', 'hangmo27121999@gmail.com', 'Hay lắm', 24, '2020-08-02 19:37:52', '2020-08-02 19:37:52');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_details`
+-- Cấu trúc bảng cho bảng `tb_details`
 --
 
 CREATE TABLE `tb_details` (
@@ -12153,12 +12135,12 @@ CREATE TABLE `tb_details` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `count` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_details`
+-- Đang đổ dữ liệu cho bảng `tb_details`
 --
 
 INSERT INTO `tb_details` (`id`, `order_id`, `product_id`, `count`, `created_at`, `updated_at`) VALUES
@@ -12171,20 +12153,13 @@ INSERT INTO `tb_details` (`id`, `order_id`, `product_id`, `count`, `created_at`,
 (31, 21, 3, 1, '2020-07-23 15:04:18', '2020-07-23 15:04:18'),
 (32, 21, 9, 2, '2020-07-23 15:04:18', '2020-07-23 15:04:18'),
 (33, 22, 9, 1, '2020-07-25 03:21:25', '2020-07-25 03:21:25'),
-(34, 23, 3, 1, '2020-08-02 09:34:38', '2020-08-02 09:34:38'),
-(35, 23, 10, 1, '2020-08-02 09:34:38', '2020-08-02 09:34:38'),
-(36, 24, 24, 1, '2020-08-02 19:32:44', '2020-08-02 19:32:44'),
-(37, 25, 24, 1, '2020-08-02 19:34:19', '2020-08-02 19:34:19'),
-(38, 26, 46, 1, '2020-08-02 19:54:40', '2020-08-02 19:54:40'),
-(39, 27, 46, 1, '2020-08-02 19:56:18', '2020-08-02 19:56:18'),
-(40, 28, 46, 1, '2020-08-03 07:38:14', '2020-08-03 07:38:14'),
-(41, 29, 39, 1, '2020-08-03 07:42:34', '2020-08-03 07:42:34'),
-(42, 30, 45, 1, '2020-08-03 12:40:51', '2020-08-03 12:40:51');
+(34, 23, 3, 2, '2020-07-30 20:00:36', '2020-07-30 20:00:36'),
+(35, 24, 9, 1, '2020-08-03 07:20:19', '2020-08-03 07:20:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_orders`
+-- Cấu trúc bảng cho bảng `tb_orders`
 --
 
 CREATE TABLE `tb_orders` (
@@ -12195,13 +12170,13 @@ CREATE TABLE `tb_orders` (
   `customer_address` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `cost_total` int(11) NOT NULL,
   `count` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `status` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_orders`
+-- Đang đổ dữ liệu cho bảng `tb_orders`
 --
 
 INSERT INTO `tb_orders` (`id`, `name`, `phone`, `email`, `customer_address`, `cost_total`, `count`, `status`, `created_at`, `updated_at`) VALUES
@@ -12210,31 +12185,25 @@ INSERT INTO `tb_orders` (`id`, `name`, `phone`, `email`, `customer_address`, `co
 (20, 'Hoàng Phi', '0989324221', 'hoangphi.dev@gmail.com', 'xã Tứ Yên', 171000, 1, 0, '2020-07-23 14:57:12', '2020-07-23 14:57:12'),
 (21, 'Hoàng Phi', '0989324221', 'tungtuong98@gmail.com', 'xã Tứ Yên', 825000, 4, 0, '2020-07-23 15:04:18', '2020-07-23 15:04:18'),
 (22, 'Hoàng Phi', '0989324221', 'hoangphi.dev@gmail.com', 'xã Tứ Yên', 190000, 1, 0, '2020-07-25 03:21:25', '2020-07-25 03:21:25'),
-(23, 'Minh Hằng', '01234567890', 'hangmo27121999@gmail.com', 'haha, Xã Tứ Yên, Huyện Sông Lô, Tỉnh Vĩnh Phúc', 540000, 2, 1, '2020-08-02 09:34:38', '2020-08-02 09:39:25'),
-(24, 'hang beo', '098765688', 'TRANNGUYEN13712@GMAIL.COM', '56 CAU GIAY, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Thành phố Hà Nội', 349998, 1, 2, '2020-08-02 19:32:44', '2020-08-03 13:52:47'),
-(25, 'Minh Hằng', '0373821691', 'TRANNGUYEN13712@GMAIL.COM', '56 CAU GIAY, Phường Ngọc Hà, Thành phố Hà Giang, Tỉnh Hà Giang', 349998, 1, 0, '2020-08-02 19:34:19', '2020-08-02 19:34:19'),
-(26, 'Minh Hằng', '0373821691', 'minhhang27121999@gmail.com', '116 lạng sơn, Xã Mẫu Sơn, Huyện Cao Lộc, Tỉnh Lạng Sơn', 200000, 1, 0, '2020-08-02 19:54:40', '2020-08-02 19:54:40'),
-(27, 'Minh Hằng', '0373821691', 'minhhang27121999@gmail.com', 'thôn phú cường, Xã Tứ Yên, Huyện Sông Lô, Tỉnh Vĩnh Phúc', 200000, 1, 0, '2020-08-02 19:56:18', '2020-08-02 19:56:18'),
-(28, 'Minh Hằng', '0123456789', 'minhhang27121999@gmail.com', '116 lạng sơn, Xã Hương Nộn, Huyện Tam Nông, Tỉnh Phú Thọ', 200000, 1, 1, '2020-08-03 07:38:14', '2020-08-03 14:01:15'),
-(29, 'Minh Hằng', '0981580812', 'hangmo27121999@gmail.com', 'thôn phú cường, Phường Hùng Vương, Quận Hồng Bàng, Thành phố Hải Phòng', 130000, 1, 0, '2020-08-03 07:42:34', '2020-08-03 07:42:34'),
-(30, 'Minh Hằng', '908766765', 'hangmo27121999@gmail.com', '56 CAU GIAY, Xã Hồ Sơn, Huyện Tam Đảo, Tỉnh Vĩnh Phúc', 200000, 1, 0, '2020-08-03 12:40:51', '2020-08-03 12:40:51');
+(23, 'Hoàng Phi', '0989324221', 'hoangphi.dev@gmail.com', 'Thôn Phú Thượng, Xã Tứ Yên, Huyện Sông Lô, Tỉnh Vĩnh Phúc', 700000, 2, 0, '2020-07-30 20:00:36', '2020-07-30 20:00:36'),
+(24, 'Lương Thị Hằng', '0325987444', 'minhhang27121999@gmail.com', 'Tu Yen Village, Xã Tứ Yên, Huyện Sông Lô, Tỉnh Vĩnh Phúc', 190000, 1, 0, '2020-08-03 07:20:19', '2020-08-03 07:20:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_positions`
+-- Cấu trúc bảng cho bảng `tb_positions`
 --
 
 CREATE TABLE `tb_positions` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `unsigned_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_positions`
+-- Đang đổ dữ liệu cho bảng `tb_positions`
 --
 
 INSERT INTO `tb_positions` (`id`, `name`, `unsigned_name`, `created_at`, `updated_at`) VALUES
@@ -12247,7 +12216,7 @@ INSERT INTO `tb_positions` (`id`, `name`, `unsigned_name`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_products`
+-- Cấu trúc bảng cho bảng `tb_products`
 --
 
 CREATE TABLE `tb_products` (
@@ -12258,83 +12227,31 @@ CREATE TABLE `tb_products` (
   `description` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `images` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `amount` int(11) NOT NULL,
-  `sale` int(11) NOT NULL DEFAULT 0,
+  `sale` int(11) NOT NULL DEFAULT '0',
   `percent_promotion` int(11) DEFAULT NULL,
   `start_promotion` date DEFAULT NULL,
   `end_promotion` date DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `special` int(11) DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `special` int(11) DEFAULT '0',
   `cate_id` int(11) NOT NULL,
   `carrier_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_products`
+-- Đang đổ dữ liệu cho bảng `tb_products`
 --
 
 INSERT INTO `tb_products` (`id`, `name`, `unsigned_name`, `price`, `description`, `images`, `amount`, `sale`, `percent_promotion`, `start_promotion`, `end_promotion`, `status`, `special`, `cate_id`, `carrier_id`, `created_at`, `updated_at`) VALUES
-(14, 'Ổ cứng HDD Western 2TB tím mới - chuyên dùng cho camera', 'o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera', 900000, 'Ổ cứng HDD 2TB Tím LÀ DẠNG Ổ CỨNG chuyên dụng cho thiết bị giám sát, đầu ghi camera, thích hợp sử dụng cho các cá nhân, văn phòng hoặc các doanh nghiệp với hệ thống lên đến 32 camera. Thông số kỹ thuật: dung lượng 2TB; giao tiếp SATA 3 (6Gb/s max); 64MB Cache, tốc độ quay 5400RPM. Công nghệ AllFrame tối ưu hóa, cải thiện hiệu suất, giảm tỉ lệ lỗi/khung.\r\nỔ cứng HDD 2TB Tím chuyên dụng cho thiết bị giám sát, đầu ghi camera là dòng ổ cứng sản xuất ra để chuyên dùng cho thiết bị ghi hình Camera giám sát, chạy rất êm, giải nhiệt tốt bằng 70% so với ổ cứng PC thông thường, thích hợp trong hệ thống camera giám sát tại nhà và doanh nghiệp vừa và nhỏ.', 'o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera-02-08-2020-opijdCzK-1.jfif', 4, 0, NULL, NULL, NULL, 1, 0, 4, 5, '2020-08-02 16:02:59', '2020-08-02 16:02:59'),
-(15, 'Ổ cứng 3TB western purple 3.5\" bảo hành 3 tháng', 'o-cung-3tb-western-purple-35-bao-hanh-3-thang', 1650000, 'Ổ cứng 3tb western tím chuyên dụng cho camera và pc\r\nHàng bảo hành 3 tháng\r\nLỗi đổi mới\r\nHàng nhập khẩu bảo hành tại công ty\r\nTốc độ chuẩn kết nối: 6 Gb/s\r\nTốc độ ghi dữ liệu: 110 MB/s\r\nTốc độ vòng quay: 5400 RPM\r\nBộ nhớ đệm: 64MB\r\nSố lượng camera hỗ trợ: Lên tới 64 cameras\r\nSố lượng bay ổ đĩa hỗ trợ tối đa: 8 bay\r\nTương thích đầu ghi DVR/NVR hoạt động 24/7\r\nĐọc/ghi: 3.3 W\r\nNhàn rỗi: 2.9W\r\nNgủ: 0.4 W', 'o-cung-3tb-western-purple-35-bao-hanh-3-thang-02-08-2020-LqjmIAlH-ce26de7272fa8f055fb92e4c36d46ea4&quot.jfif', 5, 0, NULL, NULL, NULL, 1, 0, 4, 5, '2020-08-02 16:04:58', '2020-08-02 16:05:14'),
-(16, 'Ổ Cứng HDD 500G Western Purple ( Tím )-Bảo hành 3 Tháng', 'o-cung-hdd-500g-western-purple-tim-bao-hanh-3-thang', 380000, 'Ổ cứng Camera HDD WD Purple /500G\r\nNhập khẩu từ Thái lan ....\r\nBảo hành 3 tháng 1 đổi 1\r\nHàng mới 98%\r\nLưu trữ dữ liệu ổn định và bền bỉ\r\nDùng cho máy tính để bàn\r\nWD Purple - Dòng ổ cứng hệ thống giám sát được các công ty bảo mật tin dùng\r\nỔ cứng WD Purpleđược thiết kế chạy 24/7 trong các hệ thống giám sát độ phân giải cao. Với khả năng chịu tải lên đến 180TB mỗi năm và hỗ trợ hệ thống lên tới 32 camera.\r\nỔ cứng WD Purple được tối ưu cho các hệ thống theo dõi dám sát đảm bảo môi trường yên tĩnh, tiết kiệm điện năng, tuổi thọ cao, ổn định trong suốt quá trình sử dụng.\r\nCông nghệ độc quyền AllFrame và ATA streaming tối ưu hóa, cải thiện hiệu suất, giảm tỉ lệ lỗi/khung.\r\nThông số kỹ thuật: Dung lượng 500G ; giao tiếp SATA 3 (6Gb/s max); 32M/64MB Cache, tốc độ quay 5400RPM./ 7200RPM', 'o-cung-hdd-500g-western-purple-tim-bao-hanh-3-thang-02-08-2020-dd2qU5Zd-1.jfif', 4, 0, 2, '2020-08-02', '2020-08-31', 1, 0, 4, 5, '2020-08-02 16:08:09', '2020-08-02 16:08:09'),
-(18, 'Ổ cứng 500gb Purple bảo hành 24 tháng', 'o-cung-500gb-purple-bao-hanh-24-thang', 319000, 'Là loại Ổ cứng chuyên dụng cho máy tính để bàn, thiết bị giám sát an ninh, thích hợp sử dụng cho các cá nhân, văn phòng hoặc các doanh nghiệp với hệ thống lên đến 32 camera. \r\n===>Thông số kỹ thuật: \r\n+ Dung lượng 500GB. \r\n+ Giao tiếp SATA 3 (6Gb/s max) \r\n+ Dung lượng bộ nhớ đệm (Cache): 32MB\r\n+ Tốc độ truy xuất : 7200rpm\r\n+ Kích thước: 3.5 inch\r\n- Bảo hành: 24 tháng\r\n- Sử dụng công nghệ AllFrame tối ưu hóa, cải thiện hiệu suất, giảm tỉ lệ lỗi/khung.\r\n#HDD_500GB_Purple là dòng ổ cứng sản xuất ra để chuyên dùng cho thiết bị ghi hình camera giám sát, chạy rất êm, giải nhiệt tốt bằng 70% so với ổ cứng PC thông thường, thích hợp trong hệ thống camera giám sát tại nhà, doanh nghiệp vừa và nhỏ.', 'o-cung-500gb-purple-bao-hanh-24-thang-02-08-2020-HAiWBUW9-1.jfif', 6, 0, NULL, NULL, NULL, 1, 0, 4, 3, '2020-08-02 16:11:42', '2020-08-02 16:11:42'),
-(19, 'https://cf.shopee.vn/file/14a4eddac21801bde541816ae7c9ce81&quot;', 'httpscfshopeevnfile14a4eddac21801bde541816ae7c9ce81quot', 600000, 'Tên sản phẩm: Ổ cứng HDD Toshiba 3.5\" 1TB SATA 7200RPM 64MB \r\n- Dung lượng: 1TB\r\n- Kích thước: 3.5\"\r\n- Kết nối: SATA 3\r\n- Tốc độ vòng quay: 7200RPM\r\n- Cache: 64MB', 'httpscfshopeevnfile14a4eddac21801bde541816ae7c9ce81quot-02-08-2020-61VueG38-1.jfif', 9, 0, NULL, NULL, NULL, 1, 0, 4, 6, '2020-08-02 16:14:32', '2020-08-02 16:14:32'),
-(20, 'Ổ cứng SSD 120GB Kingston A400-2.5 inch SATAIII-Bảo Hành 3 Năm 1 đổi 1-mới full box', 'o-cung-ssd-120gb-kingston-a400-25-inch-sataiii-bao-hanh-3-nam-1-doi-1-moi-full-box', 398999, 'Ổ cứng SSD 120GB Kingston A400 - 2.5 inch SATAIII - Bảo Hành 3 Năm 1 đổi 1\r\nTốc độ nhanh gấp 10 lần ổ cơ truyền thống\r\nVới tốc độ đọc / ghi lên tới 500MB/s và 320MB/s, SSD A400 nhanh hơn 10 lần so với ổ cơ truyền thống, mang lại hiệu năng cao hơn, khả năng đa nhiệm và tốc độ cho cả hệ thống.\r\n♦ Chống chịu tốt với va đập \r\nỔ cứng SSD Kingston A400 Series chống sốc, chống rung cực tốt, đảm bảo an toàn cho dữ liệu khách hàng.\r\n♦  Tương thích nhiều nền tảng hệ thống\r\nỔ cứng SSD Kingston A400 Series với độ dày 7mm tương thích tốt với PC, laptop mỏng nhẹ\r\n♦ Dung lượng lưu trữ lớn\r\nVới dung lượng lên tới 480GB đảm bảo mọi nhu cầu lưu trữ đều được đáp ứng\r\n♦ Tương thích cực tốt với máy tính để bàn và máy tính xách tay\r\nỔ cứng SSD Kingston A400 Series với độ dày chỉ 7mm giúp tương thích với mọi khe gắn ổ cứng 2.5″ của các loại máy tính.\r\n♦ Nhiều dung lượng cho bạn lựa chọn\r\nỔ cứng SSD Kingston A400 Series có nhiều dung lượng 120GB, 240GB và 480GB cho bạn nhiều sự lựa chọn phù hợp nhất với nhu cầu lưu trữ của bạn.\r\n♦ Độ bền cực cao\r\nỔ cứng SSD Kingston A400 Series chống Sock chống rung cực tốt, cho độ tin cậy cao trong các thiết bị mang tính di động như Laptop, Macbook,…\r\n♦ Thông số kỹ thuật\r\n• Nhà sản xuất: Kingston (USA)\r\n• Model: SA400S37/120G\r\n• Chuẩn giao tiếp: Sata III 6 Gbps\r\n• Kích thước: 2.5 inch, 6.8 mm\r\n• Dung lượng: 120 GB', 'o-cung-ssd-120gb-kingston-a400-25-inch-sataiii-bao-hanh-3-nam-1-doi-1-moi-full-box-02-08-2020-Zto8FwBl-1.jfif', 8, 0, NULL, NULL, NULL, 1, 0, 4, 6, '2020-08-02 16:21:48', '2020-08-02 16:21:48'),
-(21, 'Ổ cứng gắn trong SSD 120GB Kingston UV400 sata III, bảo hành 3 năm', 'o-cung-gan-trong-ssd-120gb-kingston-uv400-sata-iii-bao-hanh-3-nam', 377, 'Hãng sản xuất KINGSTON\r\nDung Lượng 120G\r\nModel SSDNow 120GB UV300\r\nBộ điều khiển Marvell 88SS1074\r\nChip nhớ NAND TLC\r\nKích Thước 100.0mm x 69.9mm x 7.0mm - 57g\r\nTuổi thọ 1 triệu giờ MTBF\r\nTốc độ đọc tối đa lên tới 550MB/ giây\r\nTốc độ ghi tối đa lên tới 350MB / giây\r\n4K ramdom up to 90K/15K IOPS\r\nHỗ trợ TRIM - RAID, chống shock', 'o-cung-gan-trong-ssd-120gb-kingston-uv400-sata-iii-bao-hanh-3-nam-02-08-2020-tgQrzTY3-1.jfif', 4, 0, NULL, NULL, NULL, 1, 0, 4, 4, '2020-08-02 16:23:34', '2020-08-02 16:23:34'),
-(22, 'Ổ cứng SSD 2.5 inch SATA Samsung 860 EVO 500GB', 'o-cung-ssd-25-inch-sata-samsung-860-evo-500gb', 1795000, 'Chính hãng Samsung (check bằng Samsung magician)\r\nDòng sản phẩm: 860 EVO\r\nDung lượng: 500GB (500.000.000.000B ~ 465GB)\r\nTốc độ đọc tuần tự (tối đa): 550MB/s \r\nTốc độ ghi tuần tự tối đa (khi tối ưu hệ thống): 520MB/s\r\nNAND Flash: Samsung V-NAND 3bit MLC\r\nChuẩn giao tiếp: SATA3 6Gbit/s \r\nTương thích ngược với SATA2 (giới hạn 280MB/s)\r\nKích thước: 2.5\", 7mm (dùng cho laptop hoặc máy tính bàn có chân SATA)', 'o-cung-ssd-25-inch-sata-samsung-860-evo-500gb-02-08-2020-EXJV67qe-1.jfif', 4, 0, NULL, NULL, NULL, 1, 0, 4, 6, '2020-08-02 16:26:42', '2020-08-02 16:26:42'),
-(23, 'Chuột không dây Forter V181', 'chuot-khong-day-forter-v181', 100000, 'CHUỘT KHÔNG DÂY FORTER V181 MÀU ĐEN - THOẢI MÁI KHI SỬ DỤNG\r\nChuột vi tính là phụ kiện không thể thiếu cho cuộc sống công nghệ hiện nay. Với chất liệu nhựa khá bền và đẹp tạo vẻ ngoài luôn sáng bóng, chuột không dây Forter V181 màu đen không những chất lượng mà bạn có thể mang di chuyển để sử dụng bất cứ nơi nào, bất cứ lúc nào để phục vụ nhu cầu làm việc, vui chơi và giải trí.\r\n\r\nCông nghệ kết nối không dây tốc độ cao\r\nSử dụng pin AA thông dụng, tiết kiệm pin tối ưu\r\nKhoảng cách hoạt động 10m\r\nThiết kế vừa vặn, hiện đại\r\nKhoảng cách hoạt động \r\nChuột không dây Forter V181 màu đen được thiết kế để có thể hoạt động ở khoảng cách xa 10m mà không bị nhiễu sóng, giúp người dùng có thể hoạt động tự do thoải mái.\r\nThiết kế gọn nhẹ\r\nVới mẫu mã trẻ trung hiện đại, gọn gàng vừa tay, chuột không dây Forter V181 màu đen hỗ trợ cho người dùng chuột thời gian dài, không bị đau mỏi các khớp cổ tay.\r\nTiết kiệm năng lượng\r\nChuột không dây Forter V181 màu đen sử dụng pin AA thông dụng. Công nghệ tiên tiến tự động tắt bật khi kết nối hoặc shutdown máy tính tiết kiệm tối đa năng lượng.\r\nCông nghệ chuột quang tiên tiến\r\nVới mắt quang học có độ phân giải 1250dpi lên 1800dpi, chuột không dây Forter V181 màu đen giúp bạn di chuyển chính xác, điều hướng trỏ một cách hiệu quả.\r\nBảo hành 3 tháng 1 đổi  1', 'chuot-khong-day-forter-v181-02-08-2020-abBmu9YX-1.jfif', 13, 0, NULL, NULL, NULL, 1, 0, 1, 6, '2020-08-02 16:29:46', '2020-08-02 16:29:46'),
-(24, 'chuột không dây logitech m220 không tiếng ồn', 'chuot-khong-day-logitech-m220-khong-tieng-on', 349998, 'Hàng hiệu Logitech M220\"> Chuột quang không dây Logitech M220 là sự kết hợp hoàn hảo giữa thiết kế và công nghệ quang học tiên tiến. Chuột không chỉ mang lại cảm giác thoải mái nhất khi sử dụng mà còn cho bạn thao tác chính xác , nhanh nhạy với khoảng cách sử dụng xa. Chuột quang Logitech M220 đặc biệt với khả năng giảm tiếng ồn khi click chuột lên đến 90% hứa hẹn sẽ mang lại không gian yên tĩnh cho bạn khi làm việc , tránh ảnh hưởng đến môi trường xung quanh.\r\n\r\nGIẢM TIẾNG ỒN TRÊN 90% \r\nNếu như bạn luôn cần một không gian yên tĩnh để làm việc thì chuột Logitech M220 là sự lựa chọn tuyệt vời dành cho bạn. Với thiết kế cấu trúc cải tiến nhằm giảm tiếng ồn khi click chuột lên đến 90% , bạn sẽ luôn có một không gian yên tĩnh để tập trung và công việc của mình cũng như không gây tiếng ồn ảnh hưởng đến không gian xung quanh.', 'chuot-khong-day-logitech-m220-khong-tieng-on-02-08-2020-fg2h5LSD-1.jfif', 1, 3, NULL, NULL, NULL, 1, 0, 1, 4, '2020-08-02 16:32:07', '2020-08-03 13:52:47'),
-(25, 'Chuột không dây siêu mỏng 2.4GHz kèm đầu thu USB 2.0', 'chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20', 100000, '2.4GHz không dây cung cấp kết nối mạnh mẽ, đáng tin cậy với khoảng cách hoạt động lên tới 10m.\r\n  Khả năng tương thích phổ biến: Thích hợp với Windows XP, Windows Vista, Windows 7, Windows 10, Mac OS X 10.4, v.v.\r\n  Bạn có thể tận hưởng điều khiển con trỏ nhạy và mượt mà với động cơ theo dõi vô hình có độ nét cao 800-1200-1600DPI (có thể điều chỉnh được).\r\n  Thiết kế nhỏ gọn - Bạn có thể mang theo mọi lúc mọi nơi, sử dụng tại nhà, văn phòng hoặc du lịch, chỉ cần đặt chuột vào túi của bạn, siêu di động và thiết thực.\r\n  Thiết kế mỏng tiện lợi sẽ vừa vặn thoải mái trong lòng bàn tay, giúp cho tay bạn không bị mỏi. Bạn sẽ vẫn thoải mái ngay cả sau nhiều giờ nhấp, theo dõi và cuộn.\r\n  Chi tiết sản phẩm:\r\n  Chất liệu: Nhựa.\r\n  Kích thước: 11 * 5.6 * 1.8cm.\r\n  Màu sắc: Như hình ảnh hiển thị.\r\n  Công nghệ không dây: 2.4GHz.\r\n  Khoảng cách không dây: 10m.\r\n  Công tắc DPI điều chỉnh được: 800-1200-1600DPI.\r\n  Số nút: 4.\r\n  Động cơ: Quang học.\r\n  Cung cấp năng lượng: 2 * Pin AAA (Không bao gồm).\r\n  Lưu ý:\r\n  Do sự chênh lệch về cài đặt ánh sáng và màn hình, màu sắc của sản phẩm thực tế có thể hơi khác so với hình ảnh.\r\n  Vui lòng cho phép sai số kích thước nhỏ do đo lường thủ công khác nhau.\r\n  Phần trang trí acrylic màu trắng không có chức năng phát sáng, chỉ là một chức năng trang trí.\r\n  Gói hàng bao gồm:\r\n  1 x Chuột máy tính không dây\r\n  1 x Đầu nhận tín hiệu USB', 'chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20-02-08-2020-ftfvbZ3F-1.jfif', 12, 0, NULL, NULL, NULL, 1, 0, 1, 3, '2020-08-02 16:34:07', '2020-08-02 16:34:07'),
-(26, 'Chuột không dây Fulhen A09 Hãng phân phối chính thức', 'chuot-khong-day-fulhen-a09-hang-phan-phoi-chinh-thuc', 150000, 'Thông số kỹ thuât: \r\nThiết kế Ergonomic; 3 phím chức năng. \r\n- Đầu tiếp nhận mini receiver; công nghệ Nano 2.4Ghz; \r\n- Độ phân giải 1200DPI; \r\n- Khoảng cách hoạt động 10m. \r\n- Với 1 pin AA Alkaline \r\n- Kích thước: 100*59*38mm.\r\n- Bảo hành: 12 tháng.', 'chuot-khong-day-fulhen-a09-hang-phan-phoi-chinh-thuc-02-08-2020-HDUzF3Nr-1.jpg', 13, 0, NULL, NULL, NULL, 1, 0, 1, 3, '2020-08-02 16:36:19', '2020-08-02 16:36:19'),
-(27, 'Chuột Không Dây S880 2400 DPI', 'chuot-khong-day-s880-2400-dpi', 199998, 'Chuột không dây 2.4G, phạm vi hoạt động lên tới 10 mét.\r\nĐầu chuyển đổi USB mini, chỉ cần cắm và sử dụng, có thể được cất giữ ở phía dưới chuột.\r\nĐi kèm với một công tắc để tiết kiệm năng lượng.\r\nThiết kế 6 nút bấm, để thao tác thuận tiện hơn, bao gồm nút trái / phải, nút cuộn, nút DPI, nút tiến / lùi.\r\nThiết kế chức năng ngón tay cái nhanh: với nút tiến và nút lui, tiến nhanh hoặc lùi khi duyệt web, tiến hoặc lùi tại cùng một cửa sổ thư mục.\r\nĐộ phân giải tối đa: 2400 DPI và DPI điều chỉnh 4 cấp độ: 1000/1200/1600/2400 DPI, đáp ứng nhu cầu khác nhau của bạn.\r\nHình dáng tiện dụng, vừa khít dưới lòng bàn tay, giảm sự mệt mỏi hiệu quả trong quá trình làm việc căng thẳng.\r\nHoạt động bằng 2 * pin AAA (không bao gồm).', 'chuot-khong-day-s880-2400-dpi-02-08-2020-BRQ8Wd5x-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 1, 5, '2020-08-02 16:38:44', '2020-08-02 16:38:44'),
-(28, 'Chuột Không Dây YINDIAO A2 - Chống Ồn Pin Sạc Được Không Cần Thay PIN', 'chuot-khong-day-yindiao-a2-chong-on-pin-sac-duoc-khong-can-thay-pin', 150000, 'Form nhỏ vừa tay thoải mái khi cầm lâu\r\nSwitch chuột chống ồn khi bấm\r\nphù hợp với môi trường yên tĩnh như văn phòng đêm khuya\r\nLed RGB phù hợp môi trường\r\nPin sạc lại được nhiều lần với mỗi lần sử dụng lên tới 7 ngày làm việc\r\nWireless 2.4 với reciver USB thông dụng\r\nMắt đọc quang học siêu nhay đổi được tốc độ\r\nNút bấm độc quyền lên tới 10tr lượt bấm\r\nCổng sạc micro USB (kèm ngay cáp sạc)', 'chuot-khong-day-yindiao-a2-chong-on-pin-sac-duoc-khong-can-thay-pin-02-08-2020-EzFtjdee-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 1, 6, '2020-08-02 16:40:49', '2020-08-02 16:40:49'),
-(29, 'Chuột Không Dây Logitech M220', 'chuot-khong-day-logitech-m220', 349997, 'Công nghệ kết nối không dây 2.4Ghz Khoảng cách kết nối lên đến 10 mét Có nút bật tắt nguồn tiết kiệm năng lượng Sử dụng 1 pin AA\r\nGIẢM TIẾNG ỒN TRÊN 90%\r\nĐƠN GIẢN, ĐỘ TIN CẬY CAO Hãy tận hưởng một kết nối không dây lên tới 33 feet (10m) nhờ vào công nghệ không dây tiên tiến và đầu thu nano siêu nhỏ. Chuột quang không dây Logitech M220 với cảm biến quang học Logitech Advanced Optical Tracking cho thao tác cực kỳ chính xác trên hầu hết mọi bề mặt. Không cần phải cài đặt bất kỳ phần mềm nào, chỉ cần kết nối đầu thu với bất kỳ hệ điều hành Windows, Mac, Chrome OS hoặc Linux là chuột đã có thể hoạt động được ngay.\r\nBằng kỹ thuật tiết kiệm năng lượng thông minh, chuột quang không dây Logitech M220 sẽ tự động chuyển sang chế độ “ngủ” khi không sử dụng. Nhờ đó, dung lượng pin sẽ được tiết kiệm đáng kể, có thể kéo dài lên đến 18 tháng. Công việc của bạn nhờ đó cũng được thực hiện không gián đoạn.\r\nChuột quang Logitech M220 được đặc biệt thiết kế với kiểu dáng ôm với lòng bàn tay. Thiết kế thuận cả hai tay cho cảm giác thoải mái và di chuột chính xác hơn gấp nhiều lần so với khi sử dụng Touchpad trên bàn phím. Kích thước không quá cồng kềnh còn cho phép bạn mang theo chuột bên mình và sử dụng ở bất kỳ nơi đâu.', 'chuot-khong-day-logitech-m220-02-08-2020-RHsXlfyz-1.jpg', 2, 0, NULL, NULL, NULL, 1, 0, 1, 5, '2020-08-02 16:42:42', '2020-08-02 16:42:42'),
-(30, 'Chuột không dây Xiaomi 1200dpi 2.4Ghz cho Macbook Notebook Laptop', 'chuot-khong-day-xiaomi-1200dpi-24ghz-cho-macbook-notebook-laptop', 299998, 'Original Xiaomi Wireless Mouse  Mini Portable Mouse For Macbook Notebook Laptop 1200dpi 2.4Ghz Optical Mouse\r\nBrand Name: xiaomi\r\nInterface Type: USB\r\nDPI: 1200\r\nHand Orientation: Right\r\nStyle: Mini\r\nPower Type: Battery\r\nTime to market: May-13\r\nNumber of Rollers: 1\r\nType: 2.4Ghz Wireless\r\nOperation Mode: Opto-electronic\r\nGross Weight: 70g\r\nPackage: Yes\r\nModel Number: WXSB01MW\r\nNumber of Buttons: 2 \r\nPackage Included: 1pc', 'chuot-khong-day-xiaomi-1200dpi-24ghz-cho-macbook-notebook-laptop-02-08-2020-0QZ73CDh-1.jpg', 2, 0, NULL, NULL, NULL, 1, 0, 1, 3, '2020-08-02 16:44:43', '2020-08-02 16:44:43'),
-(31, 'Bàn phím Logitech K380 không dây-Kết nối cùng lúc 3 thiết bị', 'ban-phim-logitech-k380-khong-day-ket-noi-cung-luc-3-thiet-bi', 595000, 'THÔNG TIN CHI TIẾT\r\nLoại kết nối: Bluetooth Cổ điển (3.0)\r\nPhạm vi không dây: 10 m (33 ft)1\r\n1 Phạm vi không dây có thể thay đổi tùy theo điều kiện môi trường và sử dụng máy tính\r\nHỗ trợ phần mềm:\r\nLogitech Options dành cho Windows (Windows 7, Windows 8, Windows 10 trở lên)\r\nLogitech Options dành cho Mac (OS X 10.8 trở lên) \r\nLogitech Flow\r\nPin: 2 x AAA\r\nTuổi thọ pin: 24 tháng\r\nĐèn chỉ báo (LED): LED pin, 3 LED kênh Bluetooth\r\nCác phím đặc biệt: Các phím nóng (Home, Back, Công tắc ứng dụng, Menu theo ứng dụng cụ thể), Easy-Switch™\r\nKết nối / Nguồn: Công tắc bật/tắt\r\nThương hiệu Thụy Sỹ, Sản xuất tại Trung Quốc', 'ban-phim-logitech-k380-khong-day-ket-noi-cung-luc-3-thiet-bi-02-08-2020-6efnnHvh-1.jpg', 2, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 16:47:32', '2020-08-02 16:47:32'),
-(32, 'Bàn phím Dell KB216 cổng USB màu đen', 'ban-phim-dell-kb216-cong-usb-mau-den', 179000, '-  Bàn phím Dell KB216 USB là sản phẩm của hãng Dell, thương hiệu máy tính nổi tiếng thế giới. Đây là sản phẩm được ưa chuộng bởi rất nhiều người dùng máy tính.\r\n- Có kích thước gọn nhẹ, dễ dàng bỏ trong balo và mang theo bên mình và mang đi xa. Phù hợp với những game người  có nhu cầu sử dụng bàn phím của chính mình, không quen với những bàn phím tại quán net. Đặc biệt với những người sử dụng laptop muốn sử dụng bàn phím rời do không quen bàn phím laptop hay muốn giữ độ bền cho chiêc máy tính xách tay của bạn.\r\n-DELL KB216 Phù hợp với học sinh, sinh viên, nhân viên văn phòng, vì thiết kế đơn giản, phổ thông, quen thuộc với tất cả mọi người.\r\n- Chất liệu cao cấp, độ bền cao, chống va đập và cháy nổ, bảo vệ tốt linh kiện bên trong\r\n- Phím bấm chắc chắn, dứ khoát, không có hiện tượng kẹt phím hay mất kí tự khi sử dụng. Tạo cảm giác thoải mái cho người dùng, hạn chế hiện tượng mỏi tay do phải đánh máy trong thời gian dài.\r\n- Dây cáp dài phù hợp với các vị trí đặt case máy tính hay laptop của người dùng, có thể đặt case ở dưới hay bên trên bàn làm việc,  người dùng có thể tự do linh hoạt vị trí ngồi cách xa màn hình. Đáp ứng được nhu cầu sử dụng của người dùng.', 'ban-phim-dell-kb216-cong-usb-mau-den-02-08-2020-W2cYLcnB-1.jpg', 12, 0, 1, '2020-08-02', '2020-08-31', 1, 0, 2, 3, '2020-08-02 16:49:02', '2020-08-02 16:49:02'),
-(33, 'Bàn phím không dây kết nối Bluetooth cho điện thoại và máy tính bảng', 'ban-phim-khong-day-ket-noi-bluetooth-cho-dien-thoai-va-may-tinh-bang', 200000, 'Thời gian giao hàng dự kiến cho sản phẩm này là từ 7-9 ngày\r\n\r\n Miêu tả sản phẩm:\r\n \r\n  Màu sắc: Đen / hồng / trắng\r\n \r\n  Kích thước: 200 x 125 x 5MM\r\n \r\n  Phiên bản Bluetooth: phiên bản 3.0\r\n \r\n  Điện áp hoạt động: 1.8 ~ 3.6V\r\n \r\n  Dòng điện hoạt động: <2.0 mA\r\n \r\n  Dòng điện tiêu thụ ở trạng thái chờ: 0,3-0,5mA\r\n \r\n  Dòng điện tiêu thụ ở chế độ ngủ: <40uA\r\n \r\n  Dòng điện sạc: 200mA\r\n \r\n  Thời gian hoạt động liên tục: 44 tiếng\r\n \r\n  Tuổi thọ pin lithium: 3 năm\r\n \r\n  Tuổi thọ phím: 5 triệu lần bấm\r\n \r\n  Hệ điều hành hỗ trợ: Android / Win07 / 08 / IOS\r\n \r\n  Khối lượng: 170G\r\n \r\nGói hàng bao gồm:\r\n \r\n1 x Bàn phím (Không bao gồm Chuột)\r\n \r\n1 x Cáp sạc', 'ban-phim-khong-day-ket-noi-bluetooth-cho-dien-thoai-va-may-tinh-bang-02-08-2020-b7xrOVKk-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 16:52:29', '2020-08-02 16:52:29'),
-(34, 'Bàn phím không dây Xiaomi MIIIW MWBK01 - Bàn phím Gaming', 'ban-phim-khong-day-xiaomi-miiiw-mwbk01-ban-phim-gaming', 700000, '█ Tại sao bạn nên chọn Bàn phím không dây MIIIW MWBK01:\r\n✔ Một chiếc bàn phím đơn giản, tinh tế và đa dụng có thể sử dụng cho mọi thiết bị - Windows, MAC, Android, IOS\r\n✔ Toàn bộ phần đế và ốp phía trên bàn phím đều được hoàn thiện 100% từ hợp kim nhôm, bề mặt được xử lý Anodized cho độ thẩm mỹ cao cũng như khả năng chống trầy xước khá tốt\r\n✔ Thân bàn phím được thiết kế nghiêng 6°, giúp cho cảm giác gõ tự nhiên và dễ chịu hơn. Ở vị trí dày nhất, bàn phím chỉ có 23.6mm\r\n✔ Các lỗ phím được tạo ra trên phần khung nhôm nhờ máy khắc laser tiên tiến\r\n✔ Keycap được thiết kế theo phong cách cổ điển như trên các máy đánh chữ ngày xưa, khiến nó trở nên đặc biệt hơn so với phần còn lại\r\n✔ Bàn phím chiclet sẽ cho lực nhấn nhẹ hơn, độ ồn khi làm việc cũng thấp hơn rất nhiều so với việc sử dụng phím cơ\r\n✔ Hệ thống phím được thiết kế đặc biệt, với việc bổ sung thêm phím command bên cạnh phím Fn, giúp người dùng có thể sử dụng đầy đủ các tính năng trên cả hệ điều hành Mac lẫn Windows\r\n✔ Bàn phím MIIIW vẫn có thể kết nối và nhập liệu một cách bình thường trên các thiết bị di động như iPhone, iPad và các smartphone android.\r\n✔ Trang bị kết nối bluetooth lẫn không dây 2.4Ghz sẽ cho phép người dùng kết nối và nhập liệu trên 2 thiết bị cùng lúc. Việc chuyển đổi giữa các thiết bị khá đơn giản và nhanh chóng, chỉ với 1 phím bấm đơn giản', 'ban-phim-khong-day-xiaomi-miiiw-mwbk01-ban-phim-gaming-02-08-2020-Ui2Xumlp-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 16:54:05', '2020-08-02 16:54:05'),
-(35, 'Bàn Phím Giả Cơ Kèm Chuột GTX300 - Chính hãng LIMEIDE - Gaming [BH 6 THÁNG]', 'ban-phim-gia-co-kem-chuot-gtx300-chinh-hang-limeide-gaming-bh-6-thang', 200000, 'Đặc điểm nổi bật\r\n*Bàn phím gaming\r\n- Độ nẩy đàn hồi khi ấn rất tốt tạo cảm giác thoải mái khi sử dụng\r\n- Phím giả cơ nghe âm thanh rất thanh và êm\r\n- Bật tắt LED chia các vùng rất tiện lợi thao tác nhanh\r\n- Đèn led nền và led phím với 3 màu có thể thay đổi và tắt mở.\r\n( Tắt đèn thành doanh nhân, đèn lên thành game thủ )\r\n\r\n*Chuột gaming được thiết kế riêng dành cho game thủ và phòng nét.\r\n- Với đường nét thiết kế góc cạnh tạo nên sự khác biệt với nhiều sản phẩm khác.\r\n- Con lăn thiết kế nhỏ nhưng dể dàng di chuyển và có độ bền cao.\r\n- 2 viền bên cạnh được thiết kế nhô ra và ma sát giúp game thủ dể dàng cầm và di chuyển khi sử dụng đặc biệt là khi chơi game với tốc độ cao mà không hề bị mỏi.\r\n- Phù hợp với nhiều loại hệ điều hành khác nhau, nhiều cấu hình máy của PC hoặc laptop.\r\n- Đèn Led bắt mắt, phù hợp cho các game thủ chơi Game vào ban đêm.', 'ban-phim-gia-co-kem-chuot-gtx300-chinh-hang-limeide-gaming-bh-6-thang-02-08-2020-oOKqDNuv-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 16:55:35', '2020-08-02 16:55:35'),
-(36, 'Bàn Phím Game Thủ Giả Cơ V8 Có Dây Thiết Kế Độc Đáo Đèn Led 7 Màu Đẹp Mắt', 'ban-phim-game-thu-gia-co-v8-co-day-thiet-ke-doc-dao-den-led-7-mau-dep-mat', 150000, 'THÔNG TIN SẢN PHẨM\r\n•	Kích thước 44,2cm*13,5cm\r\n•	Bàn phím giả cơ phát quang\r\n•	Chất liệu nhựa\r\n•	Chuyên dùng cho chơi game\r\n•	Tương thích tất cả các dòng win và một số tivi Smart\r\n\r\nBạn có đam mê mãnh liệt với game? Bạn muốn vừa chơi game vừa giao lưu với bạn bè? Bạn muốn sử dụng những món đồ cực chất, dành riêng cho game thủ? Vậy thì chắc chắn bạn không thể bỏ qua sản phẩm bàn phím V8 phát quang này.\r\nBàn phím V8 phát quang ra đời dựa theo nhu cầu, thị hiếu của những game thủ khi cần sử dụng những chiếc bàn phím có phát sáng để thuận tiện sử dụng khi chơi game vào ban đêm. Và chính những màu sắc rực rỡ, bắt mắt của chiếc bàn phím cũng sẽ tạo thêm hứng thú cho các game thủ.\r\nVới kích thước nhỏ gọn 44,2cm*13,5cm bạn có thể dễ dành tháo dời chiếc bàn phím và mang đi bất cứ đâu bạn muốn. Bàn phím V8 phát quang được thiết kế với viền ngoài và bề mặt của các phim đều được phát quang với 7 sắc cầu vồng sẽ tạo hiệu ứng vô cùng bắt mắt, tạo điều kiện thuận lợi để các game thủ có thể sử dụng ngay cả ở những nơi không có ánh sáng. Giờ đây, bóng tối không còn trở thành một trở ngại của các game thủ khi chơi game vào ban đêm nữa.', 'ban-phim-game-thu-gia-co-v8-co-day-thiet-ke-doc-dao-den-led-7-mau-dep-mat-02-08-2020-8jz1DqZ8-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 2, 5, '2020-08-02 16:57:20', '2020-08-02 16:57:20'),
-(37, 'Bàn phím chuột chuyên game có đèn led KM-680', 'ban-phim-chuot-chuyen-game-co-den-led-km-680', 239000, 'Sản phẩm: Bàn Phím + Chuột\r\nNhãn hiệu: cho IMICE\r\nThiết lập mô hình: MK-680\r\nLoại: Có Dây Thiết Lập\r\nChuột giao diện: có dây USB\r\nCác tính năng: hỗ trợ đèn nền, hỗ trợ chống thấm nước\r\nThích hợp cho: nhà, trò chơi, văn phòng, máy tính xách tay\r\nChiều dài cáp: bàn phím 1.3 m chuột 1.4 m\r\nKích thước sản phẩm (xấp xỉ.): bàn phím: 442*133*30 mét/13.26*3.99 * 0.9in, m6 chuột 125*68*38 mét/3.75*2.04 * 1.14in, m8 chuột 125*73*40CM  3.75*2.34 * 1.2in\r\nBỘ sản phẩm:\r\n1 * bàn phím\r\n1 * chuột', 'ban-phim-chuot-chuyen-game-co-den-led-km-680-02-08-2020-19hw5ueT-1.jpg', 9, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 16:59:31', '2020-08-02 16:59:31'),
-(38, 'Bàn Phím DELL 8115 [ TẶNG LÓT CHUỘT ] Phím giảm cơ - Chính hãng - Cổng usb chơi game siêu nhạy', 'ban-phim-dell-8115-tang-lot-chuot-phim-giam-co-chinh-hang-cong-usb-choi-game-sieu-nhay', 149997, 'Bàn phím Dell 8115 - Bàn Phím Máy Tính\r\n\r\nBàn phím có thiết kế tổng thể nhỏ gọn, thiết kế khối phím cách, phím Ctrl và phím Alt, cảm giác Visual của bàn phím rất đơn giản, hào phóng. \r\n✔️Nhấn phím chọn miếng thun silicon cao cấp, đưa tay trở lại để cảm thấy thoải mái hơn. \r\n\r\n✔️Giao diện USB hỗ trợ phích cắm nóng, không có khả năng tương thích với bất kỳ xung đột quan trọng nào, sử dụng nhanh hơn, thuận tiện hơn. \r\n\r\n✔️Các phím rải rác và các phím mềm, và cảm giác phản hồi thoải mái, ngay cả khi nhấn với giọng mạnh cũng rất nhỏ. \r\n\r\nCác chức năng chỉ có ở Bàn phím Dell 8115\r\n\r\n✔️Mặt dưới của bàn phím có 5 lỗ nước, sử dụng an toàn hơn. \r\n\r\n✔️Sử dụng bố cục 104 phím tiêu chuẩn, thiết kế hợp lý. Bàn phím Slim Ultra nhỏ gọn và thiết kế tổng thể viền mỏng, thiết kế khối phím SPACEebar, Ctrl và Alt, cảm giác trực quan của bàn phím rất đơn giản, hào phóng.\r\n\r\n✔️Độ đàn hồi chính của lựa chọn nệm bằng silicon chất lượng cao, trở lại để cảm thấy thoải mái hơn. Ngoài ra, chìa khóa dài hơn lên đến 800.000 đột quỵ cuộc sống. \r\n\r\n✔️ Văn bản với bảo vệ bề mặt bàn phím khắc laser và màng, vật liệu chống trượt Cap hàng không. Các phím rải rác và các phím mềm, và rất ít âm thanh mạnh mẽ khi bị đánh. Mặt dưới của bàn phím có 5 lỗ nước, sử dụng an toàn hơn. \r\nThiết kế dành cho game thủ', 'ban-phim-dell-8115-tang-lot-chuot-phim-giam-co-chinh-hang-cong-usb-choi-game-sieu-nhay-03-08-2020-9k6AAW1I-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 2, 3, '2020-08-02 17:02:11', '2020-08-02 17:02:11'),
-(39, 'USB Kingston 64Gb/32Gb/16Gb/8Gb/4Gb/2Gb SE9 - USB 2.0, chống nước, Bảo hành 12 tháng', 'usb-kingston-64gb32gb16gb8gb4gb2gb-se9-usb-20-chong-nuoc-bao-hanh-12-thang', 130000, 'THÔNG SỐ KỸ THUÂT\r\n♻️ Thương hiệu : Kingston\r\n♻️ Model : DataTraveler SE9\r\n♻️ Dung lượng lưu trữ : 64Gb/32Gb/16Gb/8Gb/4Gb/2Gb\r\n♻️ Thiết kế: Capless\r\n♻️ Kích thước\r\n♻️ Chiều dài  : 4cm\r\n♻️ Chiều rộng : 1 cm\r\n♻️ Chiều cao :  0.5cm\r\n♻️ Màu sắc :  Bạc', 'usb-kingston-64gb32gb16gb8gb4gb2gb-se9-usb-20-chong-nuoc-bao-hanh-12-thang-03-08-2020-6W4Pa4Cj-1.jpg', 23, 1, NULL, NULL, NULL, 1, 0, 3, 3, '2020-08-02 17:04:56', '2020-08-03 07:42:34'),
-(40, 'USB Kingston SE9 64Gb/32Gb/16Gb/8Gb/4Gb/2Gb - USB 2.0, chống nước, Bảo hành 12 tháng', 'usb-kingston-se9-64gb32gb16gb8gb4gb2gb-usb-20-chong-nuoc-bao-hanh-12-thang', 150000, 'THÔNG TIN CHI TIẾT\r\n- USB Kingston siêu mỏng  có hình thức nhỏ gọn và không nắp phù hợp với mọi phong cách năng động.\r\n- USB Kingston siêu mỏng  với  Tính năng đáp ứng phong cách cho người dùng di động với Ổ USB Flash DataTraveler SE9 (DTSE9) mới. Vỏ kim loại siêu mỏng, kiểu dáng đẹp có  chỗ móc chìa khóa được tích hợp sẵn để dễ dàng đính kèm vào ba lô, ví, ví hoặc keychain\r\n- USB Kingston siêu mỏng  có hình thức nhỏ gọn và không nắp phù hợp với mọi phong cách năng động.\r\n- USB Kingston SE9 8Gb được trang bị cổng kết nối USB 2.0, cho tốc độ truyền tải dữ liệu nhanh chóng, tỷ lệ lỗi thấp. Thiết bị cho thời gian đọc và ghi dữ liệu tốt, độ chính xác cao. Thiết bị có dung lượng lên đến 8GB cho phép bạn thoải mái lưu trữ dữ liệu như: Nhạc, hình ảnh, video, văn bản, phần mềm,…\r\n- Tự động nhận driver\r\n- Sản phẩm được trang bị khả năng tự động nhận diện và cài đặt driver nhanh chóng, giúp bạn tiết kiệm thời gian. Thiết bị cho khả năng kết nối được trên hầu hết các hệ điều hành hiện nay như: Windows, Linux, Mac OS và tương thích với các thiết bị máy tính bảng, notebook, TV,…\r\n- Lưu trữ, truyền và chia sẻ lên đến 8GB ảnh, video, nhạc yêu thích của bạn và hơn thế nữa với USB Flash DataTraveler SE9 của Kingston\r\n- DataTraveler SE9 giờ đây mang đến tốc độ của USB để giúp tiết kiệm thời gian khi truyền, chia sẻ và lưu trữ các tập tin. Thiết kế vỏ kim loại bền bỉ và thu hút cùng với móc khóa cứng cáp có thể được tùy biến bằng cách thêm logo của bạn', 'usb-kingston-se9-64gb32gb16gb8gb4gb2gb-usb-20-chong-nuoc-bao-hanh-12-thang-03-08-2020-DjGPh9V1-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 3, 3, '2020-08-02 17:06:39', '2020-08-02 17:06:39'),
-(41, 'USB Kingston DT100G3 32GB 3.0-Bảo hành 60 T', 'usb-kingston-dt100g3-32gb-30-bao-hanh-60-t', 150000, 'Thông số kỹ thuật\r\n- Dung lượng: 32GB \r\n(Lưu ý Khi xem trên máy tính sẽ báo khoảng 28.8GB vì 1GB = 1.024MB)\r\n- Giao tiếp: USB 3.0 (tương thích ngược cổng 2.0)\r\n- Màu đen\r\n- Chất liệu nhựa', 'usb-kingston-dt100g3-32gb-30-bao-hanh-60-t-03-08-2020-jJOYoaFT-1.jpg', 23, 0, NULL, NULL, NULL, 1, 0, 3, 6, '2020-08-02 17:08:15', '2020-08-02 17:08:15'),
-(42, 'USB DTSE9 4G- 8G - 16G - 32G SE - Bảo Hành 24 Tháng', 'usb-dtse9-4g-8g-16g-32g-se-bao-hanh-24-thang', 100000, 'THÔNG SỐ KỸ THUẬT\r\nDung lượng: 8g,16g,32g\r\nHãng sản xuất Kingston\r\nMã sản phẩm  DTSE9\r\nXuất xứ Đài Loan (Taiwan)\r\nTốc độ truyền tải 10 Mb/s\r\nHàng Chuẩn- Đủ Dung Lượng - Chất Lượng Cao', 'usb-dtse9-4g-8g-16g-32g-se-bao-hanh-24-thang-03-08-2020-1jbAr9JM-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 3, 3, '2020-08-02 17:09:42', '2020-08-02 17:09:42'),
-(43, 'USB Kingston 4G- 8G - 16G - 32G CHÍNH HÃNG - Bảo Hành 24 Tháng', 'usb-kingston-4g-8g-16g-32g-chinh-hang-bao-hanh-24-thang', 60000, 'USB KINGSTON - USB 2.0 thiết kế dạng không nắp giúp bạn dễ dàng kết nói với máy tính mà không cần bất cứ thao tác nào. Dung lượng 4G - 8G- 16G- 32G giúp bạn chủ động hơn trong công việc và học tập. Chuẩn kết nối USB 2.0 rất thông dụng và tương thích với hầu hết máy tính hiện tại. Thông tin sản phẩm\r\nThiết kế nhỏ gọn\r\nSản phẩm có thiết kế nhỏ gọn rất thích hợp cho những người hay di chuyển. Vỏ kim loại sành điệu ́càng tăng làm sự cuốn hút của sản phẩm. Vòng móc đeo lớn giúp bạn dễ dàng gắn với nhiều loại móc khóa khác nhau.\r\nKhả năng tương thích cao\r\nUSB có thể kết nối với các máy tính hiện hành thông qua cổng USB 2.0 thông thường. Bạn có thể kết nối dễ dàng với thiết bị thông qua cổng USB 2.0 và sử dụng ngay mà không cần cài đặt bất kì phần mềm nào.\r\nDòng sản phẩm: USB KINGSTON\r\nThời gian bảo hành: 24 tháng\r\nBộ sản phẩm bao gồm: USB', 'usb-kingston-4g-8g-16g-32g-chinh-hang-bao-hanh-24-thang-03-08-2020-5DaWlg2S-1.jpg', 14, 0, NULL, NULL, NULL, 1, 0, 3, 3, '2020-08-02 17:10:55', '2020-08-02 17:13:17'),
-(44, 'USB Kingston DT100G3 USB 3.0 16GB-Bảo hành 60 T (SPC/FPT)', 'usb-kingston-dt100g3-usb-30-16gb-bao-hanh-60-t-spcfpt', 100000, 'THÔNG SỐ KỸ THUẬT\r\n- Thương hiệu: Kingston\r\n- Giao tiếp: USB 3.0 (có khả năng tương thích ngược - sử dụng được ở cổng USB 2.0)\r\n- Dung lượng: 16GB (Test trên máy tính chỉ thấy khoảng 14.4GB do máy tính dùng hệ nhị phân, 1GB = 1.024MB)\r\n- Tốc độ đọc dao động từ 30MB - 40MB/s \r\n- Tốc độ ghi dao động từ 5MB - 10MB/s\r\n- Tương thích nhiều HĐH: Windows Vista, Windows 7 - 10 , Windows8/8.1, Mac OS', 'usb-kingston-dt100g3-usb-30-16gb-bao-hanh-60-t-spcfpt-03-08-2020-CIpbw0OA-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 3, 5, '2020-08-02 17:15:30', '2020-08-02 17:15:30'),
-(45, 'Ổ USB tốc độ cao dung lượng 32GB 64GB 128GB', 'o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb', 200000, 'Thông tin chi tiết: \r\n Chất liệu: Kim loại\r\n Màu sắc: Bạc, vàng\r\n Loại giao diện: USB 3.0\r\n Trọng lượng sản phẩm: 22g\r\n Tốc độ: 500M/S', 'o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb-03-08-2020-9fcTXEft-1.jpg', 13, 1, NULL, NULL, NULL, 1, 0, 3, 4, '2020-08-02 17:17:10', '2020-08-03 12:40:51'),
-(46, 'USB bằng hợp kim dung lượng 512MB / 1G / 2G / 4G / 8G / 16G / 32G / 64G', 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 200000, 'Chi tiết sản phẩm:\r\n  Trọng lượng nhẹ, dễ mang theo và sử dụng.\r\n  Hỗ trợ USB phiên bản 2.0 và 1.0.\r\n  Hỗ trợ cho Windows 2000 / XP / Vista / Win 7 / Win 10, cho Mac 9.0 trở lên\r\n  Dễ dàng đọc và đọc ở tốc độ cao, không cần ổ đĩa/nguồn điện, chỉ cần cắm vào là xong.\r\n  Khá tuyệt cho bạn tự sử dụng và thích hợp để làm quà tặng cho bạn bè và gia đình.\r\n  Sản phẩm kiểu dáng nhỏ gọn và thời trang, một món quà ấn tượng cho người thân yêu, bạn bè hoặc thậm chí là khách hàng của bạn.\r\n  \r\n  Loại sản phẩm: USB\r\n  Chất liệu: Hợp kim\r\n  Tốc độ đọc ghi: 12MB/giây\r\n  Đặc trưng: Di động, Bền chắc, Dễ sử dụng\r\n  Kích thước: 55mm x 20mm x 10mm/2.17\" x 0.79\" x 0.39\" (xấp xỉ)', 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g-03-08-2020-nRIQqHW5-1.jpg', 0, 3, NULL, NULL, NULL, 1, 0, 3, 3, '2020-08-02 17:19:12', '2020-08-03 07:38:14'),
-(47, 'Dây nguồn máy tính 1,5m 1 sợi 1 túi nylon', 'day-nguon-may-tinh-15m-1-soi-1-tui-nylon', 10000, 'Dây nguồn hàng zin nhập khẩu Dây cáp to dẫn điện và chịu nhiệt tốt cực tốt Đầu cắm điện 2 chân loại tròn Sử dụng cho nhiều thiết bị như máy tính bàn, máy in,... chiều dài của dây 1,5m - 1,5m Độ bền rất cao', 'day-nguon-may-tinh-15m-1-soi-1-tui-nylon-03-08-2020-ENhsBjmx-1.jpg', 15, 0, NULL, NULL, NULL, 1, 0, 6, 3, '2020-08-02 17:27:59', '2020-08-02 17:27:59'),
-(48, 'DÂY NGUỒN MÁY TÍNH PC Màn Hình máy in (Nồi cơm điện) 1.5M LOẠI TỐT', 'day-nguon-may-tinh-pc-man-hinh-may-in-noi-com-dien-15m-loai-tot', 50000, '+ Cáp nguồn thông dụng cho các thiết bị vi tính, điện tử như\r\n   adapter máy xách tay PC , máy nghe nhạc, máy chụp hình, nồi cơm điện .... \r\n+ Đầu cắm ổ điện vào: 2 - 3 chấu\r\n+ Đầu cắm điện ra - 3 lỗ\r\n+ Điện thế vào AC: 100V-240V\r\n+ Dòng điện max: 5A\r\n+ Chiều dài 1.5 - 1.8.m\r\n+ lõi đồng', 'day-nguon-may-tinh-pc-man-hinh-may-in-noi-com-dien-15m-loai-tot-05-08-2020-HolrNjdn-1.jpg', 23, 0, NULL, NULL, NULL, 1, 0, 6, 5, '2020-08-05 13:55:32', '2020-08-05 13:55:32'),
-(49, 'Dây nguồn máy tính 2 chấu dài 3m. 3x1.0mm2,10A, 250V chính hãng', 'day-nguon-may-tinh-2-chau-dai-3m-3x10mm210a-250v-chinh-hang', 50000, 'dây nguồn máy tính 2 chấu dài 3m.\r\n 3x1.0mm2,10A, 250V chính hãng\r\ndây nguồn máy tính 2 chấu dài 3m. \r\n3x1.0mm2,10A, 250V chính hãng', 'day-nguon-may-tinh-2-chau-dai-3m-3x10mm210a-250v-chinh-hang-05-08-2020-rbkJ0BDT-1.jpg', 30, 0, NULL, NULL, NULL, 1, 0, 1, 3, '2020-08-05 13:57:07', '2020-08-05 13:57:07'),
-(50, 'Dây nguồn laptop tròn 3 chấu 1,5m', 'day-nguon-laptop-tron-3-chau-15m', 30000, 'Dây nguồn sạc laptop 1,5m\r\n\r\nDây nguồn dùng để kết nối cục sạc laptop với nguồn điện\r\n\r\nDây gồm 3 chuôi tròn ,thiết kế sợi dây 3 lõi hổ trợ truyền tải điện tốt', 'day-nguon-laptop-tron-3-chau-15m-05-08-2020-FQAo0Kte-1.jpg', 31, 0, NULL, NULL, NULL, 1, 0, 6, 3, '2020-08-05 13:59:05', '2020-08-05 13:59:05'),
-(51, 'Tấm lót chuột R5 size 250*300*3mm', 'tam-lot-chuot-r5-size-2503003mm', 60000, '➡ Tấm lót chuột được làm bằng với chất liệu cao cấp và kiểu dáng đơn giản\r\n➡ Giúp cho việc di chuyển chuột một cách rất dễ dàng, giúp cho chuột của bạn nhạy hơn bình thường rất nhiều\r\n➡ Miếng Lót Chuột rất gọn cho bạn dễ dàng mang theo đến mọi nơi, khi mang đi bạn chỉ cần cuộn lại sẽ dễ dàng cho việc bỏ vào balô\r\n➡ Miếng lót chuột còn bảo vệ chuột yêu của bạn khỏi những va chạm thường gặp như trên các bề mặt khác, tăng tuổi thọ và độ bền của chuột, sử dụng được bền lâu hơn\r\n➡ Sợi vải cấu trúc đặc biệt tối ưu hóa khả năng điều khiển chuột.', 'tam-lot-chuot-r5-size-2503003mm-05-08-2020-07Et00Ci-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 7, 5, '2020-08-05 14:02:21', '2020-08-05 14:02:21'),
-(52, 'Miếng lót chuột siêu dễ thương 26 x 21 cm vải dày với 20 mẫu tự chọn', 'mieng-lot-chuot-sieu-de-thuong-26-x-21-cm-vai-day-voi-20-mau-tu-chon', 99999, 'Miếng lót chuột siêu dễ thương 26 x 21 cm vải dày\r\n- Size: 26 x 21 cm\r\n- Mặt vải mịn và khít nên khi rê chuột không có độ lệch, phù hợp chơi game, thiết kế đồ họa có độ chính xác cao\r\n- Lót chuột có thiết kế bắt mắt, độc đáo với màu sắc vô cùng ấn tượng giúp hạn chế chai và cứng cổ tay khi sử dụng chuột quá lâu, mang một điểm nhấn cá tính cho bàn làm việc, góc học tập của bạn.\r\n- Miếng lót chuột có bề mặt làm từ vải và mặt dưới là cao su, êm ái giúp phân tán áp lực, mang đến cảm giác thoải mái cho tay kể cả khi khi sử dụng chuột trong thời gian dài.\r\n- Đặc biệt miếng lót chuột với kích thước nhỏ gọn phù hợp cho nhiều loại chuột máy tính như chuột quang, chuột bi, các loại chuột laser. Tính năng này giúp bạn sử dụng hiệu quả hơn và không phải thay mới khi bạn đổi loại chuột máy tính.', 'mieng-lot-chuot-sieu-de-thuong-26-x-21-cm-vai-day-voi-20-mau-tu-chon-05-08-2020-HDswWyDf-1.jpg', 11, 0, NULL, NULL, NULL, 1, 0, 7, 3, '2020-08-05 14:04:14', '2020-08-05 14:04:14'),
-(53, 'Tấm lót chuột hình tròn chống trượt họa tiết động vật hoạt hình độc đáo', 'tam-lot-chuot-hinh-tron-chong-truot-hoa-tiet-dong-vat-hoat-hinh-doc-dao', 30000, 'Tên sản phẩm: miếng lót chuột hình tròn\r\nChất liệu: cao su tự nhiên + vải\r\nKích thước: đường kính 20 cm x dày 3 mm (lỗi 1-3 mm)\r\nPhong cách: tùy lựa chọn\r\nChức năng: chống trượt\r\nMiêu tả sản phẩm: làm từ cao su tự nhiên + chất liệu bề mặt vải mịn, mềm, bề mặt nhẵn và phẳng, sử dụng công nghệ truyền nhiệt giúp hình rõ ràng và sáng, thiết kế chống trượt ở mặt sau, phù hợp để sử dụng máy tính để bàn, dễ học và làm việc.', 'tam-lot-chuot-hinh-tron-chong-truot-hoa-tiet-dong-vat-hoat-hinh-doc-dao-05-08-2020-GDa7T5QO-1.jpg', 1, 0, NULL, NULL, NULL, 1, 0, 7, 3, '2020-08-05 14:06:22', '2020-08-05 14:06:22'),
-(54, 'Bộ chia cổng USB Mega-Dock 11 in 1 USB-C Hub Feeltek', 'bo-chia-cong-usb-mega-dock-11-in-1-usb-c-hub-feeltek', 699999, 'Chức năng chính:\r\n\r\nNguồn điện 100W có khả năng sạc nhanh cho MacBook Pro (87W)/ Máy tính xách tay/ Máy tính bảng/ Điện thoại\r\nTruyền dữ liệu Thunderbolt 3/ đầu ra video HDMI 4K\r\n Hỗ trợ 2 cổng HDMI & 1 cổng VGA có khả năng phát trực tuyến ở chế độ Mirror / Extend / Multiple (Có thể thay đổi tùy theo HĐH)\r\nVỏ hoàn toàn bằng kim loại với khả năng tản nhiệt tốt hơn / được nâng cấp cổng Ethernet 1.000Mbps với 4 cổng USB-A.\r\nGiao diện kết nối (Đầu vào): USB-C 3.1\r\nĐộ phân giải tối đa: HDMI lên tới 4KX2K @ 30Hz, VGA lên đến 1080P@60Hz, PD: Tối đa 20V / 5A, RJ-45: 10/100 / 1000M', 'bo-chia-cong-usb-mega-dock-11-in-1-usb-c-hub-feeltek-05-08-2020-BcSWro3S-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 8, 6, '2020-08-05 14:08:04', '2020-08-05 14:08:04'),
-(55, '[Hub usb 3.0] Bộ chia USB từ 1 thành 4 cổng usb tốc độ 3.0', 'hub-usb-30-bo-chia-usb-tu-1-thanh-4-cong-usb-toc-do-30', 50000, 'Hub usb chia từ 1 cổng usb thành 4 cổng usb tốc độ cao\r\nThiết kế đẹp, có đèn led phong cách\r\nGiờ đây mọi kết nối với các thiết bị ngoại vi đẹp hơn bao giờ hết.\r\nKết nối ổn định.', 'hub-usb-30-bo-chia-usb-tu-1-thanh-4-cong-usb-toc-do-30-05-08-2020-tvzH8YMF-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 8, 3, '2020-08-05 14:10:04', '2020-08-05 14:10:04'),
-(56, 'Hub chia 4 cổng USB có công tắc chính hãng', 'hub-chia-4-cong-usb-co-cong-tac-chinh-hang', 90000, 'Hub chia 4 cổng USB có công tắc\r\n- Sản phẩm là thiết bị chia cổng USB từ 1 cổng USB ra 4 cổng USB, cho bạn thoải mái sử dụng được nhiều thiết bị cùng lúc mà không lo thiếu cổng.\r\n- Thiết kế 4 công tắc bật tương ứng kèm theo 4 cổng và đèn LED báo tín hiệu giúp dễ dàng quản lý kết nối.\r\n- Khi bạn không dùng hết số cổng USB bạn có thể nhấn công tắc bật, khi ấy đèn sẽ sáng và bạn có thể sử dụng cổng USB đó và nhấn công tắc tắt để tắt các cổng USB còn lại và đèn chỉ sáng ở công tắc bạn muốn bật. Điều này giúp bạn vừa tiết kiệm được điện, vừa tránh lãng phí cổng usb không sử dụng làm giảm đường truyền, vừa giúp báo hiệu cho bạn biết cổng USB đó có còn sử dụng được hay không hay bị mất điện.\r\n- Sản phẩm được làm từ chất liệu nhựa cao cấp. Dây cáp khá dài, tiện di chuyển.\r\n- Thích hợp khi sử dụng các sản phẩm lấy điện từ laptop hoặc PC.', 'hub-chia-4-cong-usb-co-cong-tac-chinh-hang-05-08-2020-73ClQTWr-1.jpg', 3, 0, NULL, NULL, NULL, 1, 0, 8, 3, '2020-08-05 14:11:26', '2020-08-05 14:11:26'),
-(57, 'Tai nghe chụp tai Hoco W24 tặng kèm tai nghe nhét tai jack 3.5 - BH 12 tháng', 'tai-nghe-chup-tai-hoco-w24-tang-kem-tai-nghe-nhet-tai-jack-35-bh-12-thang', 500000, 'Đặc điểm nổi bật\r\nW24 Khai sáng tai nghe có dây với mic cắm 3,5mm Cáp đàn hồi 1,2m đặt với tai nghe 3,5mm\r\n1. Loa: 40mm.\r\n2. Công suất định mức: 10mW. Công suất đầu vào tối đa: 50mW.\r\n3. Cáp tai nghe: Cáp cắm cao 3,5 phích cắm, chiều dài: 1,2m.\r\n4. Micrô: có mic.\r\n5. Đặt với tai nghe jack 3,5mm có mic.\r\n6. Trọng lượng: 111g.', 'tai-nghe-chup-tai-hoco-w24-tang-kem-tai-nghe-nhet-tai-jack-35-bh-12-thang-05-08-2020-Ew1ixbCU-1.jpg', 21, 0, NULL, NULL, NULL, 1, 0, 9, 3, '2020-08-05 14:12:54', '2020-08-05 14:12:54'),
-(58, 'Tai nghe chụp tai chính hãng hoco W21 dùng cho máy tính , điện thoại , laptop , PC máy nghe nhạc', 'tai-nghe-chup-tai-chinh-hang-hoco-w21-dung-cho-may-tinh-dien-thoai-laptop-pc-may-nghe-nhac', 299999, 'Thông số kỹ thuật:\r\n1. Loa: 40mm.\r\n2. Công suất định mức: 10mW. Công suất đầu vào tối đa: 50mW. \r\n3. Cắm âm thanh: Ø3,5mm. \r\n4. Cáp tai nghe: dây bện cao. \r\n5. Chiều dài cáp: 1,2m. \r\n6. Micrô: bộ điều khiển có mic. \r\n7. Điều khiển dây: điều khiển hoạt động bằng một nút bấm.', 'tai-nghe-chup-tai-chinh-hang-hoco-w21-dung-cho-may-tinh-dien-thoai-laptop-pc-may-nghe-nhac-05-08-2020-AVpJ4Xxw-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 9, 3, '2020-08-05 14:14:51', '2020-08-05 14:14:51'),
-(59, 'Tai nghe Gaming E-DRA EH410 PRO Chơi Pubg, các Game chiến thuật Đèn Led RGB Có Dây', 'tai-nghe-gaming-e-dra-eh410-pro-choi-pubg-cac-game-chien-thuat-den-led-rgb-co-day', 900000, '- Sở hữu thiết kế với dải băng co giãn để thay đổi kích cỡ khi đeo. được làm bằng chất liệu giả da, phần khung gọng tai nghe làm từ kim loại. Nhìn tổng thể chiếc tai nghe trông sẽ hiện đại hơn và không có cảm giác rẻ tiền.\r\n\r\n- Dải đèn LED RGB nổi bật, cá tính.\r\n\r\n- Phần củ tai to bản được cách điệu với những đường rãnh xung quanh, kèm với đó là logo cùng tên thương hiệu sản phẩm được đặt chính giữa.\r\n\r\n- Micro có thể điều chỉnh vị trí để gần miệng hơn, cho âm thanh thu âm cũng như nói chuyện, trao đổi với đồng đội tốt hơn.\r\n\r\n- Kích thước Micro: Φ6*5mm.\r\n\r\n- Độ nhạy âm: -54db±3db.\r\n\r\n- Hướng bắt âm micro: đa hướng.\r\n\r\n- Đường kính củ loa: Φ50mm.\r\n\r\n- Trở kháng: 32Ω.\r\n\r\n- Tốc độ phản hổi: 20~2000Hz.\r\n\r\n- Công suất đầu vào tối đa:20mW.\r\n\r\n- Độ nhạy loa: 107±3db.\r\n\r\n- Chiều dài dây:2.5meters.\r\n\r\n- Kết nối:1*USB+2*audio ports.\r\n\r\nSản phẩm chính hãng được bảo hành 24 tháng 1 đổi 1 mới với lỗi thuộc nhà sản xuất, căn cứ bảo hành là mã số đơn hàng bạn mua.', 'tai-nghe-gaming-e-dra-eh410-pro-choi-pubg-cac-game-chien-thuat-den-led-rgb-co-day-05-08-2020-mi49zBjB-1.jpg', 34, 0, NULL, NULL, NULL, 1, 0, 9, 3, '2020-08-05 14:16:44', '2020-08-05 14:17:08'),
-(60, 'TAI NGHE SAMSUNG AKG S10/S10 PLUS NGUYÊN BẢN', 'tai-nghe-samsung-akg-s10s10-plus-nguyen-ban', 29999, '* ĐẶC ĐIỂM NỔI BẬT SẢN PHẨM: \r\n- Tai nghe Samsung AKG S10/S10 Plus được sở hữu với kiểu dáng sang trọng, thanh lịch, thời trang tạo nên sự tinh tế, phong cách cho người dùng \r\n- Dây tai nghe chống rối và khó đứt. Chân cắm tai nghe chuẩn chân cắm 3.5 nên tích hợp cho tất các Smartphone hiện nay, hơn thế bạn có thể cắm vào máy tính vẫn nghe bình thường. \r\n- Hai núm tai nghe được thiết kế kiểu nhét vào tai, do được sử dụng chất liệu silicon nên cho bạn cảm giác khi đeo rất thoải mái mà không bị đau tai trong quá trình sử dụng. Ngoài ra, còn có phần vòng cung giúp định vị tai rất chắc chắn khi sử dụng.\r\n- Âm bass rất tốt, cho chất lượng âm thanh thực, rất ấm giúp bạn tận hưởng cảm giác thoải mái khi nghe nhạc.\r\n- Âm thanh của tai nghe trong,chống ồn, kín tiếng, không phát âm thanh ra ngoài nền tính riêng tư rất cao.', 'tai-nghe-samsung-akg-s10s10-plus-nguyen-ban-05-08-2020-bILMh0yE-1.jpg', 23, 0, NULL, NULL, NULL, 1, 0, 9, 3, '2020-08-05 14:18:50', '2020-08-05 14:18:50'),
-(61, 'Cáp chuyển đổi HDMI sang VGA có âm thanh, HDMI to vga có âm thanh, dây chuyển từ hdmi sang vga, dây kết nối máy chiếu', 'cap-chuyen-doi-hdmi-sang-vga-co-am-thanh-hdmi-to-vga-co-am-thanh-day-chuyen-tu-hdmi-sang-vga-day-ket-noi-may-chieu', 60000, 'Cáp chuyển đổi HDMI sang VGA là bộ chuyển đổi tín hiệu số HDMI ra đinh dạng VGA và tín hiệu âm thanh stereo. Đây là một giải pháp tốt để chuyển đổi được tín hiệu từ HDMI digital ra tín hiệu VGA analog có kèm theo âm thanh cổng 3.5. Sản phẩm Cáp chuyển đổi HDMI sang VGA có IC khuếch đại là một trong những sản phẩm Công nghệ được ưa chuộng bậc trên thị trường hiện nay bởi những tính năng vượt trội của nóĐẶC ĐIỂM NỔI BẬTTính năng tiện dụng\r\nSản phẩm giúp chuyển đổi tín hiệu hình ảnh, âm thanh từ điện thoại, máy tính và laptop sang Tivi, màn hình LCD, máy chiếu với độ nét cao. Sản phẩm dùng để xuất hình ảnh từ thiết bị có cổng HDMI sang các màn hình hỗ trợ cổng VGA rất tiện lợi. Bạn chỉ cần cắm là sử dụng được ngay mà không phải cài đặt gì thêm.  Đặc biệt, để hỗ trợ việc xuất ra âm thanh chất lượng cao, cáp có tích hợp cổng Audio tiêu chuẩn rất tiện sử dụng.Định dạng tương thích\r\nHDMI định dạng video đầu vào: 480i / 576i / 480p / 576p / 720p / 1080i / 1080p\r\nVGA định dạng đầu ra video: 480i / 576i / 480p / 576p / 720p / 1080i / 1080pĐầu vào là tín hiệu HDMI đầu ra là tín hiệu VGA (lưu ý: không chuyển ngược lại được)\r\n- Video đầu vào giao diện HDMI. HDMI định dạng đầu vào: 720p, 1080i, 1080p\r\nVideo đầu ra giao diện VGA. VGA độ phân giải đầu ra: Với sự thay đổi đầu vào tín hiệu HDMI hỗ trợ độ phân giải: 800 * 600,1024 * 768,1280 * 720,1280 * 1024,1920 * 1080.\r\n- Chuyển đổi tín hiệu từ HDMI sang VGA có âm thanh\r\n- Được xây dựng trong nhận dạng tự động cân bằng thực hiện theo các đặc điểm kỹ thuật HDMI 1.2A\r\n- Hỗ trợ pixel tốc độ 25MHz đến 165MHz', 'cap-chuyen-doi-hdmi-sang-vga-co-am-thanh-hdmi-to-vga-co-am-thanh-day-chuyen-tu-hdmi-sang-vga-day-ket-noi-may-chieu-05-08-2020-548WvgS4-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 10, 5, '2020-08-05 14:21:14', '2020-08-05 14:21:14'),
-(62, 'Cáp chuyển từ HDMI sang VGA có hỗ trợ audio', 'cap-chuyen-tu-hdmi-sang-vga-co-ho-tro-audio', 90000, 'Cáp chuyển đổi HDMI sang VGA có Audio - bộ chuyển đổi HDMI sang VGA, Audio\r\nCáp chuyển đổi tín hiệu HDMI sang VGA có audio , HDMI to VGA\r\nSản phẩm Cáp Hdmi to Vga có ic khuếch đại là một trong những sản phẩm Công nghệ được ưa chuộng bậc nhất trên thị trường hiện nay bởi những tính năng vượt trội của nó, giúp chuyển đổi tín hiệu hình ảnh, âm thanh từ Máy tính và Laptop các thiết bị xuất ra tín hiệu cổng HDMI sang Tivi, Màn hình LCD, Máy chiếu với độ nét cao\r\n- Dây tín hiệu nối giữa Laptop không có cổng VGA với máy chiếu hoặc màn hình Lcd (có chip ở bên trong) chuyển đổi từ HDMI sang VGA.\r\n- Lưu ý: Chỉ chuyển 1 chiều từ HDMI dương cáp chuyển đổi sang VGA không dùng ngược lại.\r\n- Hỗ trợ đến độ phân giải 1080p\r\n- Chuyển đổi tín hiệu kỹ thuật số của bạn với các tín hiệu analog\r\n- Cắm tự nhận tín hiệu từ các thiết bị phát tín hiệu ra cổng HDMI\r\n- Chiều dài cáp: 20cm\r\nBộ chuyển tin hiệu HDMI sang VGA\r\nXuất ra tín hiệu VGA và âm thanh để cắm vào loa\r\n- Tương thích với Tivi LCD, Máy Chiếu, truyền hình hộp set-top, ...\r\n- Dùng chuyển đổi cho các loại card màn hình đời cao chỉ có cổng HDMI không có cổng VGA. Tương thích với hầu hết các loại card như GTX650, GTX750, GTX750ti, GTX1050ti...', 'cap-chuyen-tu-hdmi-sang-vga-co-ho-tro-audio-05-08-2020-HlCDp0nn-1.jpg', 34, 0, NULL, NULL, NULL, 1, 0, 10, 3, '2020-08-05 14:22:54', '2020-08-05 14:22:54'),
-(63, 'Cáp chuyển đổi từ Typec sang HDMI + VGA 2K 4K cáp typec to hdmi kết nối tivi máy chiếu', 'cap-chuyen-doi-tu-typec-sang-hdmi-vga-2k-4k-cap-typec-to-hdmi-ket-noi-tivi-may-chieu', 140000, 'Cắm và chuyển đổi USB3.0 sang HDMI / VGA hoàn toàn mới! ! !\r\n\r\n Khả năng tương thích:\r\n- máy tính để bàn với một cổng USB có sẵn, máy tính xách tay, ultrabook và máy tính bảng (USB 3.0 đề nghị)\r\n- bộ chuyển đổi USB 3.0 này chỉ dành cho các hệ thống chạy Windows 7/8/10 hệ điều hành\r\n\r\n cắm Sử dụng:\r\nChip trình điều khiển tích hợp, dễ sử dụng, không cần cài đặt trình điều khiển.\r\n\r\n Các hệ thống tương thích:\r\nBộ chuyển đổi HDMI / VGA này chỉ tương thích với Windows 10, Windows 8.1, Windows 8 và Windows 7.\r\nNó không hỗ trợ MAC OS, Linux và Vista.\r\n\r\nHiện tại, FL2000 hỗ trợ phiên bản iOS hỗ trợ trình điều khiển hệ thống của Apple', 'cap-chuyen-doi-tu-typec-sang-hdmi-vga-2k-4k-cap-typec-to-hdmi-ket-noi-tivi-may-chieu-05-08-2020-dAxuVqnB-1.jpg', 50000, 0, NULL, NULL, NULL, 1, 0, 10, 5, '2020-08-05 14:24:40', '2020-08-05 14:24:40');
-INSERT INTO `tb_products` (`id`, `name`, `unsigned_name`, `price`, `description`, `images`, `amount`, `sale`, `percent_promotion`, `start_promotion`, `end_promotion`, `status`, `special`, `cate_id`, `carrier_id`, `created_at`, `updated_at`) VALUES
-(64, 'Balo Laptop Hàn Quốc cao cấp HARAS', 'balo-laptop-han-quoc-cao-cap-haras', 100000, 'Đặc điểm nổi bật\r\n- Kích thước 43cm x 30cm x 11cm.\r\nKích thước không quá lớn nhưng kích thước đủ để bạn chứa tất cả những vật dụng cần thiết tiện lợi khi đi du lịch, chơi thể thao, đi học, đi làm… Những ngăn nhỏ giúp bạn thỏa mái để những vật nhỏ như chìa khóa, cart, thẻ ATM…\r\n- Thiết kế hiện đại, tiện dụng\r\nThiết kế mang hơi hướng hiện đại, vừa đơn giản, vừa sang trọng. Sản phẩm chắc chắn sẽ khiến bạn trở nên tươm tất, phong cách và đẳng cấp khi đi du lịch, đi chơi thể thao hay đi học.\r\n- Chất liệu chuyên dụng cao cấp\r\n Balo nam HARAS được gia công bằng chất liệu vải đảm bảo độ bền chắc theo thời gian. Loại chất liệu này góp phần hạn chế tối đa tình trạng sờn cũ, phai màu sau một thời gian dài sử dụng.\r\n- Đường may tỉ mỉ, chắc chắn\r\nSản phẩm được chế tác bằng những đường may tỉ mỉ và chắc chắn, không chỉ mang đến độ bền mà còn mang đến tính thẩm mỹ, tinh tế cao. Phần dây đeo và tay xách được may bằng kỹ thuật gấp mép dây viền, vững chắc.', 'balo-laptop-han-quoc-cao-cap-haras-05-08-2020-dx6S0bnP-1.jpg', 40, 0, NULL, NULL, NULL, 1, 0, 11, 5, '2020-08-05 14:28:49', '2020-08-05 14:28:49'),
-(65, 'Balo thời trang học sinh nam, nữ Hàn Quốc, balo laptop Jin Dian', 'balo-thoi-trang-hoc-sinh-nam-nu-han-quoc-balo-laptop-jin-dian', 200000, '+ Giới thiệu Sản phẩm:\r\n+ Mẫu mới về có 2 ngăn nhé : 1 ngăn lớn 1 ngăn nhỏ ạ\r\n+ Kích thước sản phẩm: 43 x 28 x 10 cm\r\n+ Thiết kế có nhiều ngăn rộng rãi để đc máy tính, điện thoại, máy tính bảng, cặp sách vv.\r\n+ Trọng lượng nhẹ, thích hợp cho việc di chuyển dễ dàng\r\n+ Thiết kế thoáng khí, màu sắc hài hòa mang phong cách Hàn Quốc.\r\n+ Kiểu dáng cực đẹp, mẫu hot \r\n+ Phù hợp đi chơi, đi làm, đi học, hoặc đi du lịch.\r\n+ Màu sắc: màu đen, màu xám', 'balo-thoi-trang-hoc-sinh-nam-nu-han-quoc-balo-laptop-jin-dian-05-08-2020-ofrSsnPU-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 11, 5, '2020-08-05 14:31:34', '2020-08-05 14:31:34'),
-(66, 'Sạc Dell 19.5V-4.62A ĐẦU Tặng sợi dây nguồn sạc laptop', 'sac-dell-195v-462a-dau-tang-soi-day-nguon-sac-laptop', 70000, 'Hãng sản xuất: OEM\r\n- Dành cho: Tất cả notebook Dell (Inspiron & Vostro)\r\n- Điện áp vào: 110V – 240V\r\n- Điện áp ra: 19.5V - 4.62A', 'sac-dell-195v-462a-dau-tang-soi-day-nguon-sac-laptop-05-08-2020-few7bdrX-1.jpg', 34, 0, NULL, NULL, NULL, 1, 0, 12, 3, '2020-08-05 14:33:06', '2020-08-05 14:33:06'),
-(67, 'Sạc Nguồn màn hình 14V-3A chân kim [Rẻ nhất- Giao ngẫu nhiên]', 'sac-nguon-man-hinh-14v-3a-chan-kim-re-nhat-giao-ngau-nhien', 590000, 'Chi tiết sản phẩm\r\nAdapter cho màn hình giao ngẫu nhiên\r\n4v 4a 56W ac dc nguồn cung cấp năng lượng \r\nĐầu vào: 100-240V phổ ac \r\nĐiện áp đầu vào: AC 100-240V 50/60hz \r\nPhạm vi điện áp: ac 90-264V 47/63hz\r\nĐầu sạc: Chân kim\r\nBảo hành 6 tháng', 'sac-nguon-man-hinh-14v-3a-chan-kim-re-nhat-giao-ngau-nhien-05-08-2020-7BgCif2J-1.jpg', 2, 0, NULL, NULL, NULL, 1, 0, 12, 3, '2020-08-05 14:34:25', '2020-08-05 14:34:25'),
-(68, 'Sạc laptop HP Probook 6560B 6450B', 'sac-laptop-hp-probook-6560b-6450b', 80000, 'Điện áp vào AC100V240V , 50/60Hz\r\nĐiện áp ra DC18.5V\r\nDòng cung cấp 3.5A, 65W\r\nKích thước đầu sạc: 5.5mmx2.5mm.', 'sac-laptop-hp-probook-6560b-6450b-05-08-2020-zKEsg3pe-1.jpg', 12, 0, NULL, NULL, NULL, 1, 0, 12, 3, '2020-08-05 14:35:48', '2020-08-05 14:35:48');
+(3, 'Chuột máy tính LOGITECH M187 (Trắng)', 'chuot-may-tinh-logitech-m187-trang', 350000, 'TÍNH NĂNG NỔI BẬT\r\nThiết kế nhỏ gọn\r\nChuột không dây LOGITECH M187 có thiết kế nhỏ nhắn, có thể nằm gọn trong lòng bàn tay người dùng. Đây là sản phẩm lý tưởng để bạn có thể đem theo mọi nơi mà không lo tốn nhiều diện tích cất giữ. Các đường cong uốn lượn quanh thân chuột giúp chuột bo sát lòng bàn tay, tạo cảm giác cầm nắm chắc chắn và điều khiển dễ dàng hơn.\r\n\r\nCông nghệ kết nối không dây 2.4GHz tiên tiến\r\nLOGITECH M187 Trắng không chỉ nâng khoảng cách sử dụng chuột tối đa lên đến 10m, công nghệ kết nối không dây 2.4GHz còn đảm bảo dữ liệu được truyền tải liên tục, không bị gián đoạn và nhanh hơn 60% so với những công nghệ không dây cũ trước đây.\r\n\r\nThiết bị thu sóng nhỏ gọn\r\n Có thể gắn đầu thu sóng vào máy tính mà không cần phải tháo ra khi không sử dụng. Đầu thu sóng tích hợp công nghệ Nano Receiver cho phép nhận cùng lúc nhiều thiết bị khác nhau sử dụng cùng công nghệ. Đây sẽ là mảnh ghép tuyệt vời cho hệ thống máy tính hiện đại của bạn.', 'chuot-12-06-2020-NryiD1d7-chuot-co-day-genius-dx-125-den-ava-600x600.jpg', 81, 19, NULL, NULL, NULL, 1, 1, 1, 3, '2020-06-12 13:29:02', '2020-07-30 20:00:36'),
+(9, 'Bàn phím giả cơ chuyên Game Marvo K616 Led 7 màu tự chuyển (Đen)', 'ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den', 190000, 'Marvo - 1 thương hiệu nổi tiếng đến từ Hong Kong chuyên lĩnh vực về thiết bị & phụ kiện Gaming như: Computer Speaker, Gaming Mouse, Gaming keyboard & combo, Gaming Headphone, Gaming Cooling pad, Computer Case, Gaming Chair, Gaming Mouse Pad, Game Pad,....\r\n\r\nXin giới thiệu đến các bạn sản phẩm: Bàn phím giả cơ chuyên Game Marvo K616 Led 7 màu tự chuyển\r\n\r\nNHÌN LÀ THÍCH!\r\nBạn là game thủ, Bạn chưa tìm được bàn phím chuyên chơi game nào thật ưng ý. Tin vui cho bạn, Bàn phím chuyên game cao cấp Marvo K616 led 7 màu tùy chỉnh - Một siêu phẩm của dòng bàn phím chuyên dành cho game thủ.\r\n\r\nThiết kế:\r\n- Bàn phím giả cơ chuyên Game Marvo K616 Led 7 màu tự chuyển được thiết kế đẹp mắt với hệ thống đèn led chuyển theo cụm màu tùy thích, Đèn Led cực kỳ nổi bật tỏa khắp bàn phím làm nổi bật các chữ và hình ảnh các logo, đường nét.\r\n\r\n Chất lượng vượt trội\r\n- Phím được khắc laser chống bay chữ, các nút phím theo chuẩn chơi game tạo cảm giác bám tốt vào ngón tay, gõ chữ cực êm.\r\n- Chân đế bàn phím chịu được lực cao.\r\n- Các chữ nổi bật màu sắc, sử dụng êm nhẹ, dễ dàng.\r\n- Có khả năng chống nước, va đập\r\n\r\n Phong các game thủ..\r\n- Ngoài ra phím còn được tích hợp hệ thống đèn led tùy chỉnh đổi màu bằng Fn + SL; hoặc cho các cụm đèn tự thay đổi liên tục (FN + PS) và tăng giảm độ sáng tối màu phím tùy thích ( Fn + up; Fn + Down ).\r\n- Núm cao su dưới bằng phím được làm từ chất liệu cao su tốt giúp phím có độ đàn hồi cao và nhận tín hiệu nhanh rất thích hợp cho game thủ ra chơi thoải mái hơn.\r\n- Ngoài ra bàn phím còn được thiết kế chống nước dưới bàn phím với 8 lỗ thoát nước rất nhanh giúp người dùng lỡ tay đỗ nước vào cũng ko ảnh hưởng đến các mạch bên trong.\r\n- Mặt bàn phím được phủ một lớp chống trầy đen bóng, và chữ trên phím được khắc lazer độ bền cực cao.', 'ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den-15-06-2020-4vg6y3ip-278b7bc4baf20057996b930d72a660fa.jpeg', 82, 18, NULL, NULL, NULL, 1, 0, 2, 3, '2020-06-13 09:06:42', '2020-08-03 07:20:19'),
+(10, 'Chuột Gaming Zadez G-610M Đen', 'chuot-gaming-zadez-g-610m-den', 190000, 'Chuột Gaming Zadez G-610M đen có kiểu dáng gọn nhẹ, thiết kế có các chi tiết bo cong, vừa lòng bàn tay khi cầm nắm, tạo cảm giác thoải mái khi chơi game\r\n\r\nChuột gaming có hệ thống đèn Led 4 màu nổi nật, năng động hơn khi chơi game\r\n\r\nVới độ phân giải quang học có thể điều chỉnh lên đến 3200 DPI, chuột có dây hỗ trợ tốt cho các game thủ. Những cú click chuột chính xác, những phát bắn chuẩn mực sẽ mang đến sự trải nghiệm tuyệt vời\r\n\r\nChất liệu nhựa an toàn, có dây được bọc dù chắc chắn, chuột Zadez còn đạt được các chứng chỉ an toàn, phù hợp với tiêu chuẩn nghiêm ngặt của thị trường Mỹ và châu Âu', 'chuot-gaming-zadez-g-610m-den-23-07-2020-L5mJlYmr-chuot-gaming-zadez-g-610m-den-1-600x600.jpg', 97, 3, NULL, NULL, NULL, 1, 0, 1, 4, '2020-07-23 11:20:58', '2020-07-24 16:19:02');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_products_views`
+-- Cấu trúc bảng cho bảng `tb_products_views`
 --
 
 CREATE TABLE `tb_products_views` (
@@ -12345,12 +12262,12 @@ CREATE TABLE `tb_products_views` (
   `session_id` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `agent` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_products_views`
+-- Đang đổ dữ liệu cho bảng `tb_products_views`
 --
 
 INSERT INTO `tb_products_views` (`id`, `product_id`, `unsigned_name`, `url`, `session_id`, `ip`, `agent`, `created_at`, `updated_at`) VALUES
@@ -12466,34 +12383,15 @@ INSERT INTO `tb_products_views` (`id`, `product_id`, `unsigned_name`, `url`, `se
 (110, 10, 'chuot-gaming-zadez-g-610m-den', 'http://localhost/hoangtu/public/detail/10/chuot-gaming-zadez-g-610m-den.html', '2C0ShqQ0Axbm1iYZfBSy3nGjSGAvwKmUyhYTxaL6', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/87.0.152 Chrome/81.0.4044.152 Safari/537.36', '2020-07-23 16:08:36', '2020-07-23 16:08:36'),
 (111, 9, 'ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den', 'http://localhost/hoangtu/public/detail/9/ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den.html', 'FfklVQty0pr1uSX2SsHpaRpYx7Qouu4E7AzdvMHX', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/87.0.152 Chrome/81.0.4044.152 Safari/537.36', '2020-07-25 03:21:17', '2020-07-25 03:21:17'),
 (112, 3, 'chuot-may-tinh-logitech-m187-trang', 'http://localhost/hoangtu/public/detail/3/chuot-may-tinh-logitech-m187-trang.html', 'FGVOO8HRftYXw3LaYagRscGsSd2rbrygZ83jEvz3', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/87.0.152 Chrome/81.0.4044.152 Safari/537.36', '2020-07-30 18:46:32', '2020-07-30 18:46:32'),
-(113, 10, 'chuot-gaming-zadez-g-610m-den', 'http://localhost/hoangtu/public/detail/10/chuot-gaming-zadez-g-610m-den.html', 'o3sxEYjicr118AtaYJNOZ1pAtwlzSk7tW7wMHQh7', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 09:33:58', '2020-08-02 09:33:58'),
-(114, 3, 'chuot-may-tinh-logitech-m187-trang', 'http://localhost/hoangtu/public/detail/3/chuot-may-tinh-logitech-m187-trang.html', 'n7P2a29R4DMjaWEQKvFQo8o1uZEsxCYY4Mcxz4fS', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 10:07:13', '2020-08-02 10:07:13'),
-(115, 14, 'o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera', 'http://localhost/hoangtu/public/detail/14/o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 16:03:10', '2020-08-02 16:03:10'),
-(116, 14, 'o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera', 'http://localhost/hoangtu/public/detail/14/o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 16:08:14', '2020-08-02 16:08:14'),
-(117, 16, 'o-cung-hdd-500g-western-purple-tim-bao-hanh-3-thang', 'http://localhost/hoangtu/public/detail/16/o-cung-hdd-500g-western-purple-tim-bao-hanh-3-thang.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 16:08:20', '2020-08-02 16:08:20'),
-(118, 23, 'chuot-khong-day-forter-v181', 'http://localhost/hoangtu/public/detail/23/chuot-khong-day-forter-v181.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 16:30:42', '2020-08-02 16:30:42'),
-(119, 38, 'ban-phim-dell-8115-tang-lot-chuot-phim-giam-co-chinh-hang-cong-usb-choi-game-sieu-nhay', 'http://localhost/hoangtu/public/detail/38/ban-phim-dell-8115-tang-lot-chuot-phim-giam-co-chinh-hang-cong-usb-choi-game-sieu-nhay.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 17:02:19', '2020-08-02 17:02:19'),
-(120, 24, 'chuot-khong-day-logitech-m220-khong-tieng-on', 'http://localhost/hoangtu/public/detail/24/chuot-khong-day-logitech-m220-khong-tieng-on.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 19:30:49', '2020-08-02 19:30:49'),
-(121, 24, 'chuot-khong-day-logitech-m220-khong-tieng-on', 'http://localhost/hoangtu/public/detail/24/chuot-khong-day-logitech-m220-khong-tieng-on.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 19:37:23', '2020-08-02 19:37:23'),
-(122, 24, 'chuot-khong-day-logitech-m220-khong-tieng-on', 'http://localhost/hoangtu/public/detail/24/chuot-khong-day-logitech-m220-khong-tieng-on.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 19:37:52', '2020-08-02 19:37:52'),
-(123, 46, 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 'http://localhost/hoangtu/public/detail/46/usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 19:53:42', '2020-08-02 19:53:42'),
-(124, 25, 'chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20', 'http://localhost/hoangtu/public/detail/25/chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20.html', '6371ytYrgRTPKJPBr0nBDUqFofPF9VJf0VKJskxa', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 07:31:33', '2020-08-03 07:31:33'),
-(125, 25, 'chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20', 'http://localhost/hoangtu/public/detail/25/chuot-khong-day-sieu-mong-24ghz-kem-dau-thu-usb-20.html', 'ObsFDUINpZm8OrBhCOIKE1CGy5Fa96yGswVl0Uz3', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-02 19:36:16', '2020-08-02 19:36:16'),
-(126, 46, 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 'http://localhost/hoangtu/public/detail/46/usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g.html', 'TLE2wampXphKVSaZQ82vSP89x1HJAiN5pxv2afKh', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 07:37:47', '2020-08-03 07:37:47'),
-(127, 39, 'usb-kingston-64gb32gb16gb8gb4gb2gb-se9-usb-20-chong-nuoc-bao-hanh-12-thang', 'http://localhost/hoangtu/public/detail/39/usb-kingston-64gb32gb16gb8gb4gb2gb-se9-usb-20-chong-nuoc-bao-hanh-12-thang.html', 'TLE2wampXphKVSaZQ82vSP89x1HJAiN5pxv2afKh', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 07:40:53', '2020-08-03 07:40:53'),
-(128, 45, 'o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb', 'http://localhost/hoangtu/public/detail/45/o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb.html', 'oRw3cWtI677GgqK2umH2hJDuRoCU5LihxjOfdjBp', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 12:40:08', '2020-08-03 12:40:08');
-INSERT INTO `tb_products_views` (`id`, `product_id`, `unsigned_name`, `url`, `session_id`, `ip`, `agent`, `created_at`, `updated_at`) VALUES
-(129, 14, 'o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera', 'http://localhost/hoangtu/public/detail/14/o-cung-hdd-western-2tb-tim-moi-chuyen-dung-cho-camera.html', 'oRw3cWtI677GgqK2umH2hJDuRoCU5LihxjOfdjBp', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 12:57:20', '2020-08-03 12:57:20'),
-(130, 46, 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 'http://localhost/hoangtu/public/detail/46/usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g.html', 'oRw3cWtI677GgqK2umH2hJDuRoCU5LihxjOfdjBp', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 12:59:32', '2020-08-03 12:59:32'),
-(131, 45, 'o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb', 'http://localhost/hoangtu/public/detail/45/o-usb-toc-do-cao-dung-luong-32gb-64gb-128gb.html', 'oRw3cWtI677GgqK2umH2hJDuRoCU5LihxjOfdjBp', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 12:59:49', '2020-08-03 12:59:49'),
-(132, 46, 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 'http://localhost/hoangtu/public/detail/46/usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g.html', 'oRw3cWtI677GgqK2umH2hJDuRoCU5LihxjOfdjBp', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-03 13:06:32', '2020-08-03 13:06:32'),
-(133, 24, 'chuot-khong-day-logitech-m220-khong-tieng-on', 'http://localhost/hoangtu/public/detail/24/chuot-khong-day-logitech-m220-khong-tieng-on.html', 'LaDcferULf4qQpfu4ceOhRscCV7QuhbGe4Jt93oD', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-04 18:07:53', '2020-08-04 18:07:53'),
-(134, 46, 'usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g', 'http://localhost/hoangtu/public/detail/46/usb-bang-hop-kim-dung-luong-512mb-1g-2g-4g-8g-16g-32g-64g.html', 'Z9krkCcVn2FqIus8tvRkA8MTfriwS2uQZE6sAZ66', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36', '2020-08-05 13:51:34', '2020-08-05 13:51:34');
+(113, 9, 'ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den', 'http://localhost/hoangtu/public/detail/9/ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den.html', 'hiZROcYEQulNKC86rzDe6BLlnR6VtWr8736PPt56', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/87.0.152 Chrome/81.0.4044.152 Safari/537.36', '2020-08-03 07:19:36', '2020-08-03 07:19:36'),
+(114, 3, 'chuot-may-tinh-logitech-m187-trang', 'http://172.16.10.101/hoangtu/public/detail/3/chuot-may-tinh-logitech-m187-trang.html', 'RBKZIbGuE56pDEQHGJeaEtSFo2aNVTvhcEHAkzl5', '172.16.10.100', 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/83.0.4103.88 Mobile/15E148 Safari/604.1', '2020-08-10 16:25:01', '2020-08-10 16:25:01'),
+(115, 3, 'chuot-may-tinh-logitech-m187-trang', 'http://172.16.10.101/hoangtu/public/detail/3/chuot-may-tinh-logitech-m187-trang.html', 'RBKZIbGuE56pDEQHGJeaEtSFo2aNVTvhcEHAkzl5', '172.16.10.100', 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/83.0.4103.88 Mobile/15E148 Safari/604.1', '2020-08-10 16:25:50', '2020-08-10 16:25:50'),
+(116, 9, 'ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den', 'http://192.168.13.102/hoangtu/public/detail/9/ban-phim-gia-co-chuyen-game-marvo-k616-led-7-mau-tu-chuyen-den.html', 'nirVzNH9rYKiKOfuWljsnPFbUMCQR4JZ8y490U5T', '192.168.13.107', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/87.0.152 Chrome/81.0.4044.152 Safari/537.36', '2020-08-17 12:23:52', '2020-08-17 12:23:52');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Cấu trúc bảng cho bảng `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -12501,6 +12399,8 @@ CREATE TABLE `tb_users` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `google_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `github_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `birthday` date DEFAULT NULL,
@@ -12508,171 +12408,170 @@ CREATE TABLE `tb_users` (
   `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `locations` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL DEFAULT '1',
   `remember_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `position_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tb_users`
+-- Đang đổ dữ liệu cho bảng `tb_users`
 --
 
-INSERT INTO `tb_users` (`id`, `name`, `email`, `google_id`, `password`, `avatar`, `birthday`, `sex`, `phone`, `locations`, `facebook`, `status`, `remember_token`, `position_id`, `created_at`, `updated_at`) VALUES
-(1, 'Quản Trị Hệ Thống', 'admin@gmail.com', NULL, '$2y$10$JNSBUWigChCGBX/t/LsRvuoPdZ7DJ5K2KHjvVDJW/Zmj.eDSqaxtm', 'quan-tri-he-thong-1-13-06-2020-6x4NceUi-unnamed.png', NULL, 1, NULL, NULL, NULL, 1, NULL, 1, '2020-06-05 07:12:59', '2020-06-13 08:29:22'),
-(2, 'Lương Minh Hằng', 'minhhangvlogs@gmail.com', NULL, '$2y$10$i.VQdeyKh0BKF7zSF.zNieDd8UQSxrZuf5nZei9ELhhohAI1u7Gvq', 'hang.jpg', '1999-12-29', 1, '0373821691', 'Phú Cường, Yên Lương, Tứ Yên, Sông Lô, Vĩnh Phúc', 'https://www.facebook.com/LuongMinhHangOfficial', 1, 'PgECurx1qeHBbEaxoY1F6LEjEiIriA4LnVCB9ORk0Cm08RxbH7LyYIEpap84', 1, '2020-06-05 07:20:30', '2020-08-06 02:07:14'),
-(3, 'Phi Hoàng', 'hoangphi.dev@gmail.com', NULL, '$2y$10$wOnFW5GOQ3Mx.vhy25vXWO2XEPsdYyw4d7SkQzF82OfZ2jI69fD.G', 'phi-hoang-3-12-06-2020-ueUqVeE8-profile-img.jpg', '1998-02-09', 0, '0867604321', 'Xóm Sơn Tiến, xã Quyết Thắng, TP Thái Nguyên, tỉnh Thái Nguyên', 'https://www.facebook.com/PhiHoangOfficial', 1, 'q1XBVxRoO7haJuMClV0yVaeiOthScfNb6uirrXvpAhXGNoItHEFjAgzeJF3a', 1, '2020-06-05 07:21:42', '2020-07-24 16:31:28'),
-(9, 'Dứa Studio', 'contact.duastudio@gmail.com', '115327375967890458705', NULL, 'dua-studio-9-23-07-2020-grWfrFLP-avatar.jpg', NULL, 0, NULL, NULL, NULL, 1, '9rEsXNHZEZG4i32tCAUwCMnfvRuzpJQYhlxWqTvoNtQWmh3iIz6GAl6fz5LH', 4, '2020-07-22 17:01:53', '2020-07-23 08:53:42'),
-(10, 'Hoàng Phi', 'dtc16hd4801030037@ictu.edu.vn', '107408509767349389163', NULL, 'https://lh3.googleusercontent.com/a-/AOh14GhSiXYr77DG6-l3szqxGIRF-eNCXj5PRyy-XzoNCw', NULL, 0, NULL, NULL, NULL, 1, '2w23zpYNwZlmDllK5pzUekxngJ8esIyhHiiyT34UswmFkUyINb529Mp5Az88', 4, '2020-07-23 07:58:12', '2020-07-24 16:25:46'),
-(11, 'Hoàng Phi Mobile', 'contact.hoangphimobile@gmail.com', '113938486388354559460', NULL, 'https://lh3.googleusercontent.com/a-/AOh14GgWFIUiYBb8bpH2_ri2DuFNcjEHxsiiaCImA6rK', NULL, NULL, NULL, NULL, NULL, 1, 'ZT4YfATBLyPFbLLcV0OMRPsak5fC8smeHJkPiJbmMv0H8gWRqat6PT4VxDxP', 5, '2020-07-24 16:26:48', '2020-07-24 16:30:21'),
-(12, 'Hằng Minh Mo', 'minhhang27121999@gmail.com', '100853948540804706186', NULL, 'https://lh3.googleusercontent.com/a-/AOh14GiAUxI3UiGlsSJ57I_11p9SaHkHQgyqVygpa2NI', NULL, 0, NULL, NULL, NULL, 1, 'YYuqolKCRE3USNnouIADuYATHt9P4rjQ8jaJwerD00VSk0rsfaPcmqj8AlGC', 2, '2020-08-03 13:13:29', '2020-08-06 02:07:05');
+INSERT INTO `tb_users` (`id`, `name`, `email`, `google_id`, `facebook_id`, `github_id`, `password`, `avatar`, `birthday`, `sex`, `phone`, `locations`, `facebook`, `status`, `remember_token`, `position_id`, `created_at`, `updated_at`) VALUES
+(1, 'Quản Trị Hệ Thống', 'admin@gmail.com', NULL, NULL, NULL, '$2y$10$JNSBUWigChCGBX/t/LsRvuoPdZ7DJ5K2KHjvVDJW/Zmj.eDSqaxtm', 'quan-tri-he-thong-1-13-06-2020-6x4NceUi-unnamed.png', NULL, 1, NULL, NULL, NULL, 1, NULL, 1, '2020-06-05 07:12:59', '2020-06-13 08:29:22'),
+(2, 'Lương Minh Hằng', 'minhhangvlogs@gmail.com', NULL, NULL, NULL, '$2y$10$i.VQdeyKh0BKF7zSF.zNieDd8UQSxrZuf5nZei9ELhhohAI1u7Gvq', 'hang.jpg', '1999-12-29', 1, '0373821691', 'Phú Cường, Yên Lương, Tứ Yên, Sông Lô, Vĩnh Phúc', 'https://www.facebook.com/LuongMinhHangOfficial', 1, NULL, 3, '2020-06-05 07:20:30', '2020-06-08 07:59:38'),
+(9, 'Dứa Studio', 'contact.duastudio@gmail.com', '115327375967890458705', NULL, NULL, NULL, 'dua-studio-9-23-07-2020-grWfrFLP-avatar.jpg', NULL, 0, NULL, NULL, NULL, 1, '9rEsXNHZEZG4i32tCAUwCMnfvRuzpJQYhlxWqTvoNtQWmh3iIz6GAl6fz5LH', 4, '2020-07-22 17:01:53', '2020-07-23 08:53:42'),
+(10, 'Hoàng Phi', 'dtc16hd4801030037@ictu.edu.vn', '107408509767349389163', NULL, NULL, NULL, 'https://lh3.googleusercontent.com/a-/AOh14GhSiXYr77DG6-l3szqxGIRF-eNCXj5PRyy-XzoNCw', NULL, 0, NULL, NULL, NULL, 1, '2w23zpYNwZlmDllK5pzUekxngJ8esIyhHiiyT34UswmFkUyINb529Mp5Az88', 4, '2020-07-23 07:58:12', '2020-07-24 16:25:46'),
+(11, 'Hoàng Phi Mobile', 'contact.hoangphimobile@gmail.com', '113938486388354559460', NULL, NULL, NULL, 'https://lh3.googleusercontent.com/a-/AOh14GgWFIUiYBb8bpH2_ri2DuFNcjEHxsiiaCImA6rK', NULL, NULL, NULL, NULL, NULL, 1, 'ZT4YfATBLyPFbLLcV0OMRPsak5fC8smeHJkPiJbmMv0H8gWRqat6PT4VxDxP', 5, '2020-07-24 16:26:48', '2020-07-24 16:30:21'),
+(13, 'Phi Hoàng', 'hoangphi.dev@gmail.com', '109569902459895640853', '1893081020847856', NULL, NULL, 'phi-hoang-13-09-08-2020-IpImrjDn-avatar.jpg', '1998-08-13', 0, NULL, NULL, NULL, 1, 'EMkdPwoKqf7wZ4bDNaAohsNN6VfRuhCQ481qsPz7XWPFyWtA61vJBqzFKtIf', 1, '2020-08-08 17:20:54', '2020-08-08 17:28:00');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbl_quanhuyen`
+-- Chỉ mục cho bảng `tbl_quanhuyen`
 --
 ALTER TABLE `tbl_quanhuyen`
   ADD PRIMARY KEY (`maqh`);
 
 --
--- Indexes for table `tbl_tinhthanhpho`
+-- Chỉ mục cho bảng `tbl_tinhthanhpho`
 --
 ALTER TABLE `tbl_tinhthanhpho`
   ADD PRIMARY KEY (`matp`);
 
 --
--- Indexes for table `tbl_xaphuongthitran`
+-- Chỉ mục cho bảng `tbl_xaphuongthitran`
 --
 ALTER TABLE `tbl_xaphuongthitran`
   ADD PRIMARY KEY (`xaid`);
 
 --
--- Indexes for table `tb_banners`
+-- Chỉ mục cho bảng `tb_banners`
 --
 ALTER TABLE `tb_banners`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_carriers`
+-- Chỉ mục cho bảng `tb_carriers`
 --
 ALTER TABLE `tb_carriers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_categories`
+-- Chỉ mục cho bảng `tb_categories`
 --
 ALTER TABLE `tb_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_comments`
+-- Chỉ mục cho bảng `tb_comments`
 --
 ALTER TABLE `tb_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_details`
+-- Chỉ mục cho bảng `tb_details`
 --
 ALTER TABLE `tb_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_orders`
+-- Chỉ mục cho bảng `tb_orders`
 --
 ALTER TABLE `tb_orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_positions`
+-- Chỉ mục cho bảng `tb_positions`
 --
 ALTER TABLE `tb_positions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_products`
+-- Chỉ mục cho bảng `tb_products`
 --
 ALTER TABLE `tb_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_products_views`
+-- Chỉ mục cho bảng `tb_products_views`
 --
 ALTER TABLE `tb_products_views`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_users`
+-- Chỉ mục cho bảng `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tb_banners`
+-- AUTO_INCREMENT cho bảng `tb_banners`
 --
 ALTER TABLE `tb_banners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tb_carriers`
+-- AUTO_INCREMENT cho bảng `tb_carriers`
 --
 ALTER TABLE `tb_carriers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_categories`
+-- AUTO_INCREMENT cho bảng `tb_categories`
 --
 ALTER TABLE `tb_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_comments`
+-- AUTO_INCREMENT cho bảng `tb_comments`
 --
 ALTER TABLE `tb_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_details`
+-- AUTO_INCREMENT cho bảng `tb_details`
 --
 ALTER TABLE `tb_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `tb_orders`
+-- AUTO_INCREMENT cho bảng `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `tb_positions`
+-- AUTO_INCREMENT cho bảng `tb_positions`
 --
 ALTER TABLE `tb_positions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_products`
+-- AUTO_INCREMENT cho bảng `tb_products`
 --
 ALTER TABLE `tb_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_products_views`
+-- AUTO_INCREMENT cho bảng `tb_products_views`
 --
 ALTER TABLE `tb_products_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT cho bảng `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

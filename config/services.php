@@ -40,4 +40,10 @@ return [
         'redirect' => 'http://localhost/hoangtu/public/login/google/callback',
     ],
 
+    'facebook' => [
+        'client_id' => '791442941667545',
+        'client_secret' => 'e731150f98ce9bd10c6b09957574efad',
+        'redirect' => 'http://localhost/hoangtu/public/login/facebook/callback',
+    ],
+
 ];

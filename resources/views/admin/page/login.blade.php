@@ -55,7 +55,7 @@
                                             <span>Hoặc</span>
                                         </div>
                                         <div class="col-12">
-                                            <a class="btn btn-md btn-block btn-outline-danger waves-effect waves-light" href="{{route('admin.login.google')}}">
+                                            <a class="btn btn-md btn-block btn-outline-danger waves-effect waves-light" href="{{route('admin.login.google', ['social' => 'google'])}}">
                                                 <i class="fab fa-google-plus-square mr-2"></i> Đăng nhập với Google</a>
                                         </div>
                                     </div>

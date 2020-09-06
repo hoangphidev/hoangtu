@@ -40,12 +40,12 @@
                                             @endforeach
                                         </div>
                                     @endif
-                                    <form class="form-horizontal" action="{{asset(route('admin.edit'))}}" method="POST" enctype="multipart/form-data"> 
+                                    <form class="form-horizontal" action="{{asset(route('admin.edit.profile'))}}" method="POST" enctype="multipart/form-data"> 
                                         @csrf
                                         <div class="row col-12">
                                             <div class="form-group col-sm-4 mt-5 text-center">
                                                 @if($user->avatar == null)
-                                                    <img src="assets\images\users\avatar.png" alt="" width="300" class="rounded-circle mt-3">
+                                                    <img src="backends\images\users\avatar.png" alt="" width="300" class="rounded-circle mt-3">
                                                 @endif
                                                 @if($user->avatar != null)
                                                     @if(substr($user->avatar, 0, 5) != "https")
@@ -86,34 +86,19 @@
                                                 </div>
 
                                                 <div class="row form-group mt-2">
-                                                    <label class="col-sm-3  font-15">Ngày sinh: </label>
-                                                    <!-- <div class="col-sm-9">
-                                                        <input name="birthday" type="text" data-mask="99/99/9999" placeholder="dd/mm/yyyy" class="form-control" value="{{ $user->birthday ? $user->birthday->format('d/m/Y')  : null }}">
-                                                    </div> -->
-
-                                                    <div class="input-group col-sm-9">
-                                                        <input type="text" class="form-control datepicker" data-mask="99/99/9999" id="birthday" name="birthday" placeholder="ngày / tháng / năm" data-date-autoclose="true" value="{{ $user->birthday ? $user->birthday->format('d/m/Y')  : null }}">
-                                                        <div class="input-group-append" for="birthday">
-                                                            <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-
-                                                <div class="row form-group mt-2">
                                                     <label class="col-sm-3  font-15 control-label">Giới tính: </label>
                                                     <div class="col-sm-9">
                                                         <div class="radio radio-success form-check-inline">
-                                                            <input type="radio" id="sex1" value="0" name="sex"
-                                                                @if($user->sex == 0)
+                                                            <input type="radio" id="sex1" value="1" name="sex"
+                                                                @if($user->sex == 1)
                                                                     {{"checked"}}
                                                                 @endif
                                                             >
                                                             <label for="sex1"> Nam </label>
                                                         </div>
                                                         <div class="radio radio-danger form-check-inline">
-                                                            <input type="radio" id="sex2" value="1" name="sex"
-                                                                @if($user->sex == 1)
+                                                            <input type="radio" id="sex2" value="2" name="sex"
+                                                                @if($user->sex == 2)
                                                                     {{"checked"}}
                                                                 @endif
                                                             >
@@ -121,13 +106,6 @@
                                                         </div>
                                                     </div>
                                                 </div> 
-                                                
-                                                <div class="row form-group mt-2">
-                                                    <label class="col-sm-3 font-15" for="facebook">Facebook: </label>
-                                                    <div class="col-sm-9">
-                                                        <input type="url" parsley-type="url" name="facebook" id="facebook" placeholder="Nhập facebook của bạn..." value="{{$user->facebook}}" class="form-control">
-                                                    </div>
-                                                </div>
 
                                                 <div class="row form-group mt-2">
                                                     <label class="col-sm-3 font-15">Địa chỉ: </label>

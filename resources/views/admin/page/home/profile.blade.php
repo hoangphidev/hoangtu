@@ -35,7 +35,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 mt-3 mb-3 text-center">
                                         @if($user->avatar == null)
-                                            <img src="assets\images\users\avatar.png" alt="" width="300" class="rounded-circle mt-3">
+                                            <img src="backends\images\users\avatar.png" alt="" width="300" class="rounded-circle mt-3">
                                         @endif
                                         @if($user->avatar != null)
                                             @if(substr($user->avatar, 0, 5) != "https")
@@ -63,7 +63,7 @@
                                         <div class="row mt-2">
                                             <label class="col-sm-3  font-15">Giới tính: </label>
                                             <lable class="col-sm-9  font-15">
-                                                <?php if($user['sex'] == 0): ?>
+                                                <?php if($user['sex'] == 1): ?>
                                                     Nam
                                                 <?php else: ?>
                                                     Nữ

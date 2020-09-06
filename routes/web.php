@@ -29,8 +29,11 @@ Route::get('admin/login', 'Admin\LoginController@getLogin')->name('admin.login')
 Route::post('admin/login', 'Admin\LoginController@postLogin');
 Route::get('admin/logout','Admin\LoginController@outLogin')->name('admin.logout');
 // login with google
-Route::get('login/google', 'Admin\LoginController@redirectToGoogle')->name('admin.login.google');
-Route::get('login/google/callback', 'Admin\LoginController@handleGoogleCallback');
+// 
+Route::get('/login/{social}', 'Admin\LoginController@redirectToSocial')->name('admin.login.google');
+Route::get('login/{social}/callback', 'Admin\LoginController@handleSocialCallback');
+// Route::get('login/google', 'Admin\LoginController@redirectToGoogle')->name('admin.login.google');
+// Route::get('login/google/callback', 'Admin\LoginController@handleGoogleCallback');
 
 Route::get('ncovid', function(){
     $json_string = 'https://ncovi.huynhhieu.com/api.php?code=external';

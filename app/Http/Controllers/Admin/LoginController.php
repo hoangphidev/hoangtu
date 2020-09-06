@@ -72,4 +72,104 @@ class LoginController extends Controller
         }
         return redirect()->to(route('admin.home'));
     }
+
+
+    public function redirectToSocial($social)
+    {
+        $redirect = Socialite::driver($social)->redirect();
+        switch ($social) {
+            case 'facebook':
+                return $redirect;
+                break;
+
+            case 'google':
+                return $redirect;
+                break;
+
+            case 'github':
+                return $redirect;
+                break;
+
+            default:
+                return redirect(route('admin.login'));
+                break;
+        }
+    }
+
+    public function handleSocialCallback($social)
+    {
+        try {
+            $user = Socialite::driver($social)->user();
+        } catch (\Exception $e) {
+            return redirect(route('admin.login'));
+        }
+
+        switch ($social) {
+            case 'facebook':
+                $this->addNewUser($user, $social);
+                break;
+
+            case 'google':
+                $this->addNewUser($user, $social);
+                break;
+
+            case 'github':
+                $this->addNewUser($user, $social);
+                break;
+
+            default:
+                dd(0);
+                break;
+        }
+
+        return redirect()->to(route('admin.home'));
+    }
+
+    public static function addNewUser($user, $social)
+    {
+        $existedUser = User::where('email', $user->email)->first();
+        if($existedUser){
+
+            switch ($social) {
+                case 'facebook':
+                    $existedUser->facebook_id = $user->id;
+                    break;
+
+                case 'google':
+                    $existedUser->google_id = $user->id;
+                    break;
+
+                case 'github':
+                    $existedUser->github_id = $user->id;
+                    break;
+            }
+            $existedUser->save();
+
+            auth()->login($existedUser, true);
+        } else {
+            $newUser                  = new User;
+            $newUser->name            = $user->name;
+            $newUser->email           = $user->email;
+
+            switch ($social) {
+                case 'facebook':
+                    $newUser->facebook_id = $user->id;
+                    break;
+
+                case 'google':
+                    $newUser->google_id = $user->id;
+                    break;
+
+                case 'github':
+                    $newUser->github_id = $user->id;
+                    break;
+            }
+            
+            $newUser->avatar          = $user->avatar;
+            $newUser->position_id       = 5;
+            $newUser->save();
+
+            auth()->login($newUser, true);
+        }
+    }
 }
